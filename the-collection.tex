@@ -18,7 +18,7 @@
 \newread\image@file
 \newcounter{image@file@linec}
 
-\def\IncludeAllImagesFrom#1{
+\def\IncludeAllsrc-imgFrom#1{
     % init:
     \def\image@cl{}
     \immediate\openin\image@file=#1\relax
@@ -82,7 +82,7 @@ The file can be found here: \href{#1}{#1}.
 \let\oldhref\href
 \def\href#1#2{\emph{\oldhref{#1}{#2}}}
 
-\title{Overview of all images}
+\title{Overview of all src-img}
 \author{Florian Sihler}
 \date{\today}
 
@@ -91,15 +91,15 @@ The file can be found here: \href{#1}{#1}.
 \maketitle
 
 \begin{abstract}
-    This document lists all images contained in this repository.
-    All given paths are relative to \texttt{images/}. Text written in \href{./images/general/devil.tikz}{this font} can by clicked and links to a file.
+    This document lists all src-img contained in this repository.
+    All given paths are relative to \texttt{src-img/}. Text written in \href{./src-img/general/devil.tikz}{this font} can by clicked and links to a file.
 \end{abstract}
 
 \tableofcontents
 
 % TODO: implement pallette colors
-% TODO: title images...
+% TODO: title src-img...
 
-\IncludeAllImagesFrom{\jobname-col.txt}
+\IncludeAllsrc-imgFrom{\jobname-col.txt}
 
 \end{document}
