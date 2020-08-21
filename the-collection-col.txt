@@ -1,0 +1,4 @@
+:general
+./images/general/devil.tikz devil
+:logik
+./images/logik/kv-diagram.tikz kv-diagram

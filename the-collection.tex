@@ -1,0 +1,105 @@
+\documentclass[a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[main=english]{babel}
+
+\usepackage[a4paper,left=1.25cm,right=1.25cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{multicol,microtype}
+\usepackage[hidelinks]{hyperref}
+
+\usepackage{image-base}
+
+\def\pc{\%}\def\dm{\$}
+
+\immediate\write18{bash ./collect.sh > \jobname-col.txt}
+
+\makeatletter
+\newread\image@file
+\newcounter{image@file@linec}
+
+\def\IncludeAllImagesFrom#1{
+    % init:
+    \def\image@cl{}
+    \immediate\openin\image@file=#1\relax
+    \ifeof\image@file\else% exists
+    \typeout{Parsing #1}
+\loop%
+    \read\image@file to \image@cl \relax
+    \unless\ifeof\image@file
+    \stepcounter{image@file@linec}
+    % \theimage@file@linec: 
+    \typeout{In Line: \theimage@file@linec (\image@cl)}
+    \ignorespaces\image@parse@line{\image@cl}% ~\\
+\repeat
+    \fi
+    \immediate\closein\image@file% always close afterwards :D
+}
+
+\def\image@parse@line#1{%
+    \expandafter\ifx\expandafter\\#1\\\else% only if line is not empty:
+        \expandafter\ifx#1\par\else% only if line is no paragraph
+        \expandafter\image@parse@@line#1\@nil%
+    \fi\fi
+}
+
+\def\image@cmdinit@char{:}
+\def\image@parse@@line#1#2\@nil{%
+\def\tmp@a{#1}%
+\ifx\image@cmdinit@char\tmp@a \relax% is command
+    % \typeout{! AT: '#2'}
+    \edef\@tmp{\noexpand\image@parse@@line@folder#2 \noexpand\@nil}\@tmp
+\else \edef\@tmp{\noexpand\image@parse@@line@file#1#2 \noexpand\@nil}\@tmp
+\fi
+}
+
+\def\image@parse@@line@folder#1\@nil{%
+    \section{Folder: #1}
+}
+
+\def\image@parse@@line@file#1 #2\@nil{%
+    \showcase{#1}{#2}%
+}
+\makeatother
+
+\newcommand{\DefaultBox}[3]{%
+\begin{minipage}{0.32\linewidth}
+    \centering\framebox{\resizebox{0.9\linewidth}{!}{\input{#1}}}\medskip\\
+    \emph{#3}
+\end{minipage}
+}
+
+\newcommand{\showcase}[2]{%
+\subsection{Graphic: #2}%
+\begin{center}
+    \DefaultBox{#1}{#2}{Normal version}
+    \DefaultBox{#1}{#2}{Alternate color palette}
+    \DefaultBox{#1}{#2}{Print version}
+\end{center}
+The file can be found here: \href{#1}{#1}.
+}
+
+\let\oldhref\href
+\def\href#1#2{\emph{\oldhref{#1}{#2}}}
+
+\title{Overview of all images}
+\author{Florian Sihler}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+    This document lists all images contained in this repository.
+    All given paths are relative to \texttt{images/}. Text written in \href{./images/general/devil.tikz}{this font} can by clicked and links to a file.
+\end{abstract}
+
+\tableofcontents
+
+% TODO: implement pallette colors
+% TODO: title images...
+
+\IncludeAllImagesFrom{\jobname-col.txt}
+
+\end{document}
