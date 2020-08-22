@@ -19,13 +19,15 @@
     \draw[] (3,0) -- ++(0,4); \draw[] (0,1) -- ++(4,0);
     \draw[] (0,2) -- ++(4,0); \draw[] (0,3) -- ++(4,0);
 
-    \draw[rounded corners=4pt, color=PaletteMain, fill=PaletteMain , fill opacity=0.2] (0.08,1.08) rectangle ++(3.84,1.84);
+    \draw[rounded corners=4pt, color=paletteA, fill=shadeA, fill opacity=0.75] (0.08,1.08) rectangle ++(3.84,1.84);
+    \draw[rounded corners=4pt, color=paletteB, fill=shadeB, fill opacity=0.75] (0.08,3.84) rectangle ++(0.84,-1.68);
 
-    \draw[rounded corners=4pt, color=PaletteSecondary, fill=PaletteSecondary , fill opacity=0.2](2.08,0.08) rectangle ++(1.84,1.84);
+
+    \draw[rounded corners=4pt, color=paletteD, fill=shadeD, fill opacity=0.75](2.08,0.08) rectangle ++(1.84,1.84);
 
     \draw (0,0) rectangle ++(4,4);
 
-    \node at (0.5,0.5) {0};
+    \node at (0.5,0.5) {1};
     \node at (0.5,1.5) {1};
     \node at (1.5,0.5) {0};
     \node at (1.5,1.5) {1};

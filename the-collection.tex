@@ -72,9 +72,9 @@
 \newcommand{\showcase}[2]{%
 \subsection{Graphic: #2}%
 \begin{center}
-    \DefaultBox{#1}{#2}{Normal version}
-    \DefaultBox{#1}{#2}{Alternate color palette}
-    \DefaultBox{#1}{#2}{Print version}
+    \DefaultBox{#1}{#2}{\CurrentPalette{} palette}
+    {\UsePalette{Rainbow}\DefaultBox{#1}{#2}{\CurrentPalette{} palette}}
+    {\UsePalette{GrayPrint}\DefaultBox{#1}{#2}{\CurrentPalette{} palette}}
 \end{center}
 The file can be found here: \href{#1}{#1}.
 }
