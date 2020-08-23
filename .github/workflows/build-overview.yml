@@ -19,6 +19,11 @@ jobs:
         with:
             lfs: true
 
+      - name: Checkout submodules
+        uses: textbook/git-checkout-submodule-action@master
+        with:
+            remote: true
+
       - name: Compile the collection
         uses: xu-cheng/latex-action@v2
         with:
