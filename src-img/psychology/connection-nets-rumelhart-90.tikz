@@ -1,0 +1,98 @@
+\begin{tikzpicture}
+    \foreach[count=\y] \t in {%
+        living thing,plant,animal,tree,flower,bird,fish,pine,oak,rose,daisy,robin,canary,sunfish,salmon%
+    } {
+        \ifnum\y=12
+            \node[ellipse,draw,fill=shadeA] (\t) at (0,-\y/2.65) {~~~~};
+        \else
+            \node[ellipse,draw] (\t) at (0,-\y/2.65) {~~~~};
+        \fi
+        \node[left,font=\footnotesize\sffamily] at(\t.west) {\t};
+    }
+
+
+    \foreach[count=\y] \t in {%
+        ISA,is,can,has%
+    } {
+        \ifnum\y=3
+            \node[ellipse,draw,fill=shadeA] (\t) at (2,-\y/2.65-6.75) {~~~~};
+        \else
+            \node[ellipse,draw] (\t) at (2,-\y/2.65-6.75) {~~~~};
+        \fi
+        \node[left,font=\footnotesize\sffamily] at(\t.west) {\t};
+    }
+
+    %% buffer nodes in between :D
+    \foreach \y in {5,...,12} {
+        \node[ellipse,draw] (snd\y) at (3.5,-\y/2.65) {~~~~};
+    }
+
+    %% snd buffer nodes in between :D
+    \foreach \y in {7,...,21} {
+        \node[ellipse,draw] (thr\y) at (7,-\y/2.65) {~~~~};
+    }
+
+    % output neurons?
+
+    \foreach[count=\y] \t/\fl in {%
+    living thing/,plant/,animal/,tree/,flower/,bird/,fish/,{}/{},pretty/,big/,living/,green/,red/,yellow/,{}/{},grow/fill=shadeA,move/fill=shadeA,swim/,fly/fill=shadeA,sing/,{}/{},bark/,branches/,petals/,wings/,feathers/,scales/,gills/,leaves/,roots/,skin/%
+    } {
+        \expandafter\ifx\expandafter\\\t\\\else
+        \edef\tmp{\noexpand\node[ellipse,draw,\fl] (k \t) at (10.5,-\y/2.65) {~~~~};}\tmp%
+        \node[right,align=left,font=\footnotesize\sffamily] at(k \t.east) {\t};
+        \fi
+    }
+
+    % draw the edges :)) Loving it
+    \foreach \start/\targets in {%
+        living thing/{snd5,snd7,snd12},
+        plant/{snd5,snd8},
+        animal/{snd6,snd8},%
+        tree/{snd5,snd9},%
+        flower/{snd7,snd11},
+        bird/{snd7},
+        fish/{snd5,snd9},
+        pine/{snd8},
+        oak/{snd6,snd9,snd12},
+        rose/{snd7,snd10,snd12},
+        daisy/{snd8,snd10,snd12},
+        robin/{snd11},
+        canary/{snd8,snd12},
+        sunfish/{snd9,snd10,snd12},
+        salmon/{snd5,snd9,snd12},%
+        %% SND TO THRD
+        snd5/{thr7,thr11,thr17},
+        snd6/{thr8,thr12,thr20},%
+        snd7/{thr8,thr11,thr15},%
+        snd8/{thr8,thr14,thr16,thr21},
+        snd9/{thr8,thr10,thr13},
+        snd10/{thr9,thr17,thr20},
+        snd11/{thr9,thr10,thr12,thr20},
+        snd12/{thr7,thr12,thr13,thr16,thr21},%
+        %% LOWER TO THRD
+        ISA/{thr7,thr12,thr19,thr21},
+        is/{thr8,thr14,thr16,thr20},
+        can/{thr8,thr13,thr18,thr21},
+        has/{thr12,thr15,thr19,thr20,thr21},%
+        %% THRD TO KEY
+        thr7/{k living thing, k bird, k plant, k pretty, k swim, k animal},%
+        thr8/{k plant, k fish, k living},
+        thr9/{k tree, k pretty, k grow},
+        thr10/{k living thing, k green, k branches},%
+        thr11/{k flower, k green, k move, k roots},%
+        thr12/{k pretty, k red, k yellow, k swim, k fly, k sing, k bark},%
+        thr13/{k green, k sing},
+        thr14/{k animal, k yellow, k feathers},
+        thr15/{k fish, k grow, k swim, k gills},%
+        thr16/{k swim, k fly},%
+        thr17/{k red, k yellow, k sing, k skin},
+        thr18/{k petals},
+        thr19/{k move,k wings, k leaves,k gills},
+        thr20/{k grow, k bark, k scales},%
+        thr21/{k big, k skin, k roots, k leaves,k feathers, k wings, k branches,k sing}%
+    } {
+        \foreach \target in \targets {
+            \draw[-Kite] (\start.east) -- (\target.west);
+        }
+    }
+\end{tikzpicture}

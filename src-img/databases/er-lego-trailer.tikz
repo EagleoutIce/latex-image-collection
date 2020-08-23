@@ -1,0 +1,68 @@
+\begin{tikzpicture}[scale=0.85, every node/.style={transform shape},elem/.style={rectangle,draw,text width=2.9cm,minimum height=1.25cm,align=center},delem/.style={elem,densely dashed}]
+        
+    \matrix[row sep=2em,column sep=3em] {
+        % first row
+        \node[delem] (r) {Rechnung}; &
+        \node[elem] (k) {Kunde}; \\
+        % second row
+        & \node[elem,fill=shadeA] (a) {Auftrag}; & & 
+        \node[elem,fill=shadeA] (f) {Fertigungsauftrag}; \\
+        % third row
+        \node[elem] (tt) {Teiletyp}; & &
+        \node[elem,fill=shadeA] (v) {Versandauftrag}; \\
+        % fourth row
+        \node[elem] (t) {Teil}; & &
+        \node[elem,fill=shadeC] (vp) {Versandauftrag\-position}; \\
+        % fifth row
+        & \node[elem,fill=shadeC] (ap) {Auftragsposition}; & & 
+        \node[elem,fill=shadeC] (fp) {Fertigungsauftrag\-position}; \\
+        % sixth row
+        \node[elem] (l) {Lieferant}; & \node[elem] (bp) {Bestellposition}; & \node[elem] (b) {Bestellung}; & 
+        \node[elem] (ba) {Bestell\-anforderung}; \\
+    };
+
+    % paths
+    \begin{scope}[every path/.append style={}, every node/.append style={scale=0.81,font=\sffamily\itshape},crosses/.style={preaction={double=white,double distance=7.8pt,draw=white}}]
+        % left rights
+        \draw[densely dashed] (r.east) node[above right] {(1,1)} -- (k.west) node[below left] {(0,*)};
+        \draw(a.east) node[above right] {(0,1)} -- (f.west) node[above left] {(1,1)};
+        \draw(b.east) node[below right] {(0,1)} -- (ba.west) node[above left] {(1,*)};
+        \draw(bp.east) node[below right] {(1,1)} -- (b.west) node[above left] {(1,*)};
+        \draw(t.9) node[above right] {(0,*)} -- (vp.171) node[above left] {(1,1)};
+        \draw(ap.-9) node[below right] {(0,1)} -- (fp.189) node[above left] {(1,1)};
+        \draw(l.south) node[below left] {(0,*)} |- ++(1,-0.75) -| (b.south) node[below right] {(1,1)};
+        \draw(ap.9) node[above right] {(0,1)} -| (vp.south) node[below right] {(1,1)};
+
+        %top down
+        \draw[densely dashed] (r.south) node[below left] {(1,1)} |- (a.west) node[above left] {(0,1)};
+        \draw (k.south) node[below right] {(0,*)} -- (a.north) node[above left] {(1,1)};
+        \draw (f.south) node[below right] {(1,*)} -- (fp.north) node[above right] {(1,1)};
+        \draw (fp.south) node[below right] {(0,*)} -- (ba.north) node[above left] {(1,1)};
+        \draw[crosses] (a.south) node[below left] {(1,*)} -- (ap.north) node[above right] {(1,1)};
+        \draw (v.south) node[below right] {(1,*)} -- (vp.north) node[above left] {(1,1)};
+
+        \draw (a.320) node[below right] {(0,1)} |- (v.west) node[above left] {(1,1)};
+
+        \draw (tt.south) node[below left] {(0,*)} -- (t.north) node[above right] {(1,1)};
+        \draw (t.south) node[below left] {(0,*)} -- (l.north);
+
+        \draw (t.320) node[below right] {(0,*)} |- ++(1.5,-2) |- (bp.west) node[below left] {(1,1)};
+
+        \draw(t.-9) node[below right] {(0,*)} -| (ap.145) node[above left] {(1,1)};
+    \end{scope}
+    
+    % lets add the group markers - gosh am i liking this
+    \begin{scope}[every node/.append style={font=\sffamily\Large,execute at begin node={\strut}}]
+        \node[above left] at (k.north) {Kunden};
+        \node[above left] at (tt.north) {Teiletypen};
+        \node[above left] at (t.west) {Teile};
+        \node[above left] at (l.north) {Lieferanten};
+        \node[below,yshift=0.1cm] at (bp.south) {BestellPos};
+        \node[above] at (b.north) {Bestellungen};
+        \node[below] at (ba.south) {BestellAnforderungen};
+
+        \path(a)--(f) node[midway,above,paletteA] {AuftragsDS};
+        \node[right=0.125cm,paletteC,fill=white] at (vp.east) {AuftragsPosDS};
+
+    \end{scope}
+\end{tikzpicture} 

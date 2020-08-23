@@ -1,0 +1,111 @@
+\begin{tikzpicture}[the box/.style={rounded corners=7pt,densely dashed,on background layer,paletteA}, the desc/.style={align=center,scale=0.75}]
+    \draw[the box] (0,0) rectangle ++(1.5,1.5);
+    \node[the desc,below=0.05cm] at (0.75,0) {Name, Adresse, \ldots};
+
+    % lets do the tables - if you hate me, i hate you :)
+    % #1,#2 pos #3 shading - because shadows matter (could do with shadow but nah)
+    \def\Tables#1#2#3{
+        \draw[black!#3,fill=shadeA!#3] (#1,#2) rectangle ++(0.9,-0.15);
+        % main grid
+        \fill[white] (#1,#2-0.15) rectangle ++(0.9,-0.05*11);
+        \draw[black!#3,fill=gray!#3,xstep=0.15,ystep=0.05,xshift=#1 cm,yshift=#2 cm-0.15cm,line join=round, line cap=round,thin,rounded corners=1pt] (0,0) grid ++(0.9,-0.05*11);
+    }
+
+
+    \Tables{0.2}{1.12}{90}
+    \Tables{0.4}{1.05}{70}
+
+    \node[scale=2] at(2,0.75) {+};
+
+    \draw[the box] (2.5,0) rectangle ++(4.5,1.5);
+    \node[the desc,below=0.05cm] at (3.125,0) {Textual\\Data};
+    \node[the desc,below=0.05cm] at (4.25,0) {Image\\File};
+    \node[the desc,below=0.05cm] at (5.275,0) {Video};
+    \node[the desc,below=0.05cm] at (6.375,0) {Audio};
+
+    % text file
+
+    \def\TextFile#1#2{
+        \draw[rounded corners=1pt,lightgray!45,fill=lightgray!25] (#1+0.25,#2) -| ++(0.55+0.125/2,-1.125) -| ++(-0.8-0.125/2,0.875) [sharp corners] -- cycle;
+        % lines
+        \foreach \y in {1, ..., 8} {
+            \draw[lightgray] (#1+0.125,#2-\y/8) -- ++(0.55+0.125/2,0);
+        }
+        % edge
+        \draw[rounded corners=1pt,lightgray!45,fill=black!25] (#1+0.25,#2) |- ++(-0.245,-0.25); 
+        % outer border
+        \draw[rounded corners=1pt,lightgray!45] (#1+0.25,#2) -| ++(0.55+0.125/2,-1.125) -| ++(-0.8-0.125/2,0.875) [sharp corners] -- cycle;
+    }
+
+    \TextFile{2.7}{1.3125}
+
+    \def\Images#1#2#3{
+        \fill[fill=lightgray!#3] (#1,#2) rectangle ++(0.675,-0.75);
+        % image back
+        \fill[fill=gray!75!white!#3] (#1+0.125/2,#2-0.125/2) rectangle ++(0.55,-0.55);
+        % la image
+        \fill[fill=black!#3] (#1+0.125/2,#2-0.125/2-0.55) -| ++(0.55,0.45) -- ++(-0.2,-0.3) -- ++(-0.2,0.225) -- ++(-0.15,-0.175) -- cycle;
+    }
+
+    \Images{3.825}{1.175}{35}
+    \Images{3.975}{1.05}{25}
+
+    \def\Video#1#2{
+        \fill[rounded corners=0.25pt,lightgray!25] (#1,#2) rectangle ++(0.95,-0.85);
+        % blocks
+        \foreach \x in {0,...,6} {
+            \fill[black!65,rounded corners=0.25pt] (#1+0.05+\x/8,#2-0.05) rectangle ++(0.1,-0.05);
+            \fill[black!65,rounded corners=0.25pt] (#1+0.05+\x/8,#2-0.75) rectangle ++(0.1,-0.05);
+            \fill[shadeA] (#1+0.95/2-0.125,#2-0.85/2+0.15) -- ++(0.225,-0.15) -- ++(-0.225,-0.15) -- cycle;
+        }
+    }
+    
+    \Video{4.85}{1.175}
+
+
+    \def\Audio#1#2{
+        \fill[lightgray!45] (#1,#2) rectangle ++(0.1,-0.45);
+        \fill[lightgray!65] (#1+0.1,#2) -- ++(0.2,0.15) -- ++(0,-0.75) -- ++(-0.2,0.15) -- cycle;
+        \draw[decorate,decoration={expanding waves,angle=60,segment length=2.45pt},lightgray!65] (#1+0.3,#2-0.225) -- ++(0.515,0);
+    }
+
+    \Audio{6.125}{0.965}
+
+    \node[scale=2] at(7.5,0.75) {+};
+
+    \draw[the box] (8,0) rectangle ++(3.5,1.5);
+    \node[the desc,below=0.05cm] at (8.65,0) {XML\\Data};
+    \node[the desc,below=0.05cm] at (9.65,0) {JSON\\Data};
+    \node[the desc,below=0.05cm] at (10.9,0) {Sensor\\Data};
+    
+    \def\CustomText#1#2#3#4{
+        \draw[rounded corners=1pt,lightgray!45,fill=#4!11] (#1+0.25,#2) -| ++(0.55+0.125/2,-1.125) -| ++(-0.8-0.125/2,0.875) [sharp corners] -- cycle;
+        % lines
+        \foreach \y in {1, ..., 6} {
+            \draw[lightgray] (#1+0.125,#2-\y/8) -- ++(0.55+0.125/2,0);
+        }
+        % edge
+        \draw[rounded corners=1pt,lightgray!45,fill=black!25] (#1+0.25,#2) |- ++(-0.245,-0.25); 
+        % outer border
+        \draw[rounded corners=1pt,lightgray!45] (#1+0.25,#2) -| ++(0.55+0.125/2,-1.125) -| ++(-0.8-0.125/2,0.875) [sharp corners] -- cycle;
+        \node[scale=0.45] at(#1+0.15+0.55/2,#2-7.5/8) {#3};
+    }
+
+    \CustomText{8.2}{1.3125}{<XML>}{paletteA}
+    \CustomText{9.25}{1.3125}{JSON}{paletteC}
+
+    \def\Sensor#1#2{
+        \draw[rounded corners=1.25pt,black!65,fill=shadeA] (#1,#2) rectangle ++(0.7,0.25);
+        \draw (#1+0.35,#2+0.25) -- ++(0,0.25);
+        \draw[decorate,decoration={expanding waves,angle=60,segment length=2.45pt},lightgray!65] (#1+0.35,#2+0.5) -- ++(0,0.45);
+        \fill[shadeA!80!black] (#1+0.35,#2+0.5) circle [radius=0.1];
+    }
+
+    \Sensor{10.5}{0.35}
+
+
+    \node[above=0.125cm,font=\mdseries\sffamily\itshape,scale=0.8,align=center] (d1) at (0.75,1.5) {Structured Data};
+    \node[above=0.125cm,font=\mdseries\sffamily\itshape,scale=0.8,align=center] (d2) at (4.75,1.5) {Unstructured Data};
+    \node[above=0.125cm,font=\mdseries\sffamily\itshape,scale=0.8,align=center] (d3) at (9.75,1.5) {Semi-structured Data};
+
+\end{tikzpicture}

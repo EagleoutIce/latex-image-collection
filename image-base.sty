@@ -11,17 +11,17 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{image-base}[2020/08/21 EagleoutIce - Base-Package for all src-img]
 
-\RequirePackage{tikz}
-\usetikzlibrary{shapes,calc,decorations.pathreplacing,arrows.meta}
+\RequirePackage{tikz,fontawesome,pifont}
+\usetikzlibrary{shapes,calc,decorations.pathreplacing,arrows.meta,patterns,3d,backgrounds,graphs}
 
 \let\T\texttt
-
 \RequirePackage[nohyperref]{./color-palettes/color-palettes}
-\UsePalette{Rainbow}
+\SetShadeContrast{49}
+\UsePalette{IceLake}
 
-% choose random palette (any except rainbow, legacy and print)
+% choose random palette (any except IceLake, legacy and print)
 \pgfmathsetseed{\number\pdfrandomseed}
-\pgfmathdeclarerandomlist{palettes}{{Water}{GraySun}{ClayGrass}{PurpleCoin}{Moonshine}{BloodyGrass}{SourCandy}{PurpleSand}{IceLake}{Crimson}}
+\pgfmathdeclarerandomlist{palettes}{{Water}{GraySun}{ClayGrass}{PurpleCoin}{Moonshine}{BloodyGrass}{SourCandy}{PurpleSand}{Rainbow}{Crimson}}
 \def\rndP{\pgfmathrandomitem{\rndPalette}{palettes}}
 
 \endinput

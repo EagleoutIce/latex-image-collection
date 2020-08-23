@@ -1,4 +1,4 @@
-\begin{tikzpicture}[every node/.style={font={\sffamily}, transform shape}, router size/.style={scale=0.175}, tiny router size/.style={scale=0.1},scale=0.75,link/.style={},box/.style={rectangle,draw=#1,thick,align=center},box/.default=paletteA]
+\begin{tikzpicture}[every node/.style={font={\sffamily}, transform shape}, router size/.style={scale=0.175}, tiny router size/.style={scale=0.1},scale=0.75,link/.style={},box/.style={rectangle,draw=palette#1,fill=shade#1,thick,align=center},box/.default=A]
 
     % fabric, s(witching) f(abric)
 
@@ -16,9 +16,9 @@
 
         % Draw the boxes
         \draw (0.75,\y cm+15pt) rectangle ++(3,-30pt);
-        \draw[paletteB,thick] (0.95,\y cm+6pt) rectangle ++(0.75,-12pt);
-        \draw[paletteC,thick] (0.95+0.75+0.2,\y cm+10pt) rectangle ++(0.75,-20pt);
-        \draw[paletteD,thick] (0.95+2*0.75+2*0.2,\y cm+10pt) rectangle ++(0.75,-20pt);
+        \draw[paletteB,fill=shadeB,thick] (0.95,\y cm+6pt) rectangle ++(0.75,-12pt);
+        \draw[paletteC,fill=shadeC,thick] (0.95+0.75+0.2,\y cm+10pt) rectangle ++(0.75,-20pt);
+        \draw[paletteD,fill=shadeD,thick] (0.95+2*0.75+2*0.2,\y cm+10pt) rectangle ++(0.75,-20pt);
 
         \draw[-Kite] ($(sf.north east)+(0,\y+0.5)$) -- ++(4.5,0);
 
@@ -27,9 +27,9 @@
         % offset from right
         \draw (init-right)++(0.75,15pt) rectangle ++(3,-30pt);
 
-        \draw[paletteB,thick] (init-right)++(0.95+2*0.75+2*0.2,6pt) rectangle ++(0.75,-12pt);
-        \draw[paletteC,thick] (init-right)++(0.95+0.75+0.2,10pt) rectangle ++(0.75,-20pt);
-        \draw[paletteD,thick] (init-right)++(0.95,10pt) rectangle ++(0.75,-20pt);
+        \draw[paletteB,fill=shadeB,thick] (init-right)++(0.95+2*0.75+2*0.2,6pt) rectangle ++(0.75,-12pt);
+        \draw[paletteC,fill=shadeC,thick] (init-right)++(0.95+0.75+0.2,10pt) rectangle ++(0.75,-20pt);
+        \draw[paletteD,fill=shadeD,thick] (init-right)++(0.95,10pt) rectangle ++(0.75,-20pt);
 
     }
 

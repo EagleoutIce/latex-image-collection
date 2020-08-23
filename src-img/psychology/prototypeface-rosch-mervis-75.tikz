@@ -1,0 +1,67 @@
+\begin{tikzpicture}
+    % the normal smiley - oh gosh :D
+    \draw (1,0) circle [radius=0.65cm];
+    % eyes
+    \draw (0.75,0.25) circle [radius=0.15cm];
+    \draw (1.25,0.25) circle [radius=0.15cm];
+    % nose
+    \draw (0.98,0.25) -- ++(0.15,-0.375) -- ++(-0.15,0.045);
+    % mouth
+    \draw (1,0)++(240:0.45cm) arc (240:300:0.45cm);
+
+
+    \begin{scope}[xshift=-5.5cm]
+        \draw (1,0) circle [radius=0.65cm];
+        % eyes
+        \draw (0.75,0.25) circle [radius=0.15cm];
+        \draw (1.25,0.25) circle [radius=0.15cm];
+        % nose
+        \draw (0.98,0.25) -- ++(0.15,-0.375) -- ++(-0.15,0.045);
+        % mouth
+        \draw (1,0)++(240:0.45cm) arc (240:300:0.45cm);  
+        % glasses  
+        \draw[thick] (0.75,0.25) circle [radius=0.235cm];
+        \draw[thick] (1.25,0.25) circle [radius=0.235cm];
+        \draw (0.75,0.25)++(160:0.235cm) -- ($(1,0)+(155:0.65cm)$);
+        \draw (1.25,0.25)++(20:0.235cm) -- ($(1,0)+(25:0.65cm)$);
+    \end{scope}
+
+    \begin{scope}[xshift=-2.5cm]
+        \draw (1,0) ellipse [x radius=0.65cm, y radius=1.25cm];
+        % eyes
+        \draw (0.75,0.25) circle [radius=0.15cm];
+        \draw (1.25,0.25) circle [radius=0.15cm];
+        % nose
+        \draw (0.98,0.25) -- ++(0.15,-0.375) -- ++(-0.15,0.045);
+        % mouth
+        \draw (1,0)++(240:0.45cm) arc (240:300:0.45cm);  
+    \end{scope}
+
+    \begin{scope}[xshift=-4cm, yshift=1.5cm]
+        \draw (1,0) circle [radius=0.65cm];
+        % eyes
+        \draw (0.75,0.25) circle [radius=0.15cm];
+        \draw (1.25,0.25) circle [radius=0.15cm];
+        % nose
+        \draw (0.98,0.25) -- ++(0.15,-0.375) -- ++(-0.15,0.045);
+        % mouth
+        \draw (1,0)++(240:0.45cm) arc (120:60:0.45cm);  
+    \end{scope}
+
+    \begin{scope}[xshift=-4cm, yshift=-1.5cm]
+        \draw (1,0) circle [radius=0.65cm];
+        % eyes
+        \draw (0.75,0.25) circle [radius=0.15cm];
+        \draw (1.25,0.25) circle [radius=0.15cm];
+        % nose
+        \draw (0.98,0.025) arc (90:270:0.125cm and 0.15cm);
+        % mouth
+        \draw (1,0)++(240:0.45cm) arc (240:300:0.45cm);  
+    \end{scope}
+
+    % Legend
+
+    \node at(0.75,-2.75) {Prototyp};
+    \node at(-3,-2.75) {Kategorienmitglieder};
+
+\end{tikzpicture}

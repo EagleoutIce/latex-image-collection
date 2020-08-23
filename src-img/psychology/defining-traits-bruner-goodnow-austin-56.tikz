@@ -1,0 +1,111 @@
+\begin{tikzpicture}[blockmtx/.style={matrix,fill=#1,minimum width=\mw,minimum height=\mh,align=center,scale=0.25,draw}]
+\def\mw{0.374cm}\def\mh{0.374cm}\newcommand\N[1][]{\node[#1] {};}
+    % Upper half        
+\begin{scope}
+    \node[left] at (-0.5,0) {A};
+
+    \node[blockmtx=shadeC] at (1,0.75) {%
+        \N & \N & \N \\
+        \N & \N[fill=shadeA,circle,draw] & \N \\
+        \N & \N & \N \\ 
+    };
+
+    \node[blockmtx=shadeC] at (2.5,0.75) {%
+        \N[fill=shadeB,circle,draw]& \N & \N \\
+        \N & \N & \N \\
+        \N & \N & \N[fill=shadeB,circle,draw] \\ 
+    };
+
+    \node[blockmtx=shadeC] at (4,0.75) {%
+        \N[fill=shadeB,draw]& \N & \N \\
+        \N & \N & \N \\
+        \N & \N & \N[fill=shadeB,draw] \\ 
+    };
+
+    \node[blockmtx=shadeC] at (5.5,0.75) {%
+        \N & \N & \N \\
+        \N & \N[fill=shadeB,draw] & \N \\
+        \N & \N & \N \\ 
+    };
+
+    \node[blockmtx=shadeC] at (1,-0.75) {%
+        \N & \N & \N \\
+        \N & \N[fill=shadeA,draw] & \N \\
+        \N & \N & \N \\ 
+    };
+
+    \node[blockmtx=shadeC] at (2.5,-0.75) {%
+        \N & \N & \N \\
+        \N & \N[fill=shadeB,circle,draw] & \N \\
+        \N & \N & \N \\ 
+    };
+
+    \node[blockmtx=shadeC] at (4,-0.75) {%
+        \N[fill=shadeA,draw]& \N & \N \\
+        \N & \N & \N \\
+        \N & \N & \N[fill=shadeA,draw] \\ 
+    };
+
+    \node[blockmtx=shadeC] at (5.5,-0.75) {%
+        \N[fill=shadeA,circle,draw]& \N & \N \\
+        \N & \N & \N \\
+        \N & \N & \N[fill=shadeA,circle,draw] \\ 
+    };
+\end{scope}
+
+\draw[densely dashed] (-1.25,-2) -- ++(7.75,0);
+
+\begin{scope}[yshift=-4cm]
+
+    \node[left] at (-0.5,0) {B};
+
+    \node[blockmtx=shadeC!15] at (1,0.75) {%
+        \N & \N & \N \\
+        \N & \N[fill=shadeB,circle,draw] & \N \\
+        \N & \N & \N \\ 
+    };
+
+    \node[blockmtx=shadeC!15] at (2.5,0.75) {%
+        \N[fill=shadeA,draw]& \N & \N \\
+        \N & \N & \N \\
+        \N & \N & \N[fill=shadeA,draw] \\ 
+    };
+
+    \node[blockmtx=shadeC!15] at (4,0.75) {%
+        \N & \N & \N \\
+        \N & \N[fill=shadeA,circle,draw] & \N \\
+        \N & \N & \N \\ 
+    };
+
+    \node[blockmtx=shadeC!15] at (5.5,0.75) {%
+        \N[fill=shadeB,circle,draw]& \N & \N \\
+        \N & \N & \N \\
+        \N & \N & \N[fill=shadeB,circle,draw] \\ 
+    };
+
+    \node[blockmtx=shadeC!15] at (1,-0.75) {%
+        \N[fill=shadeA,circle,draw]& \N & \N \\
+        \N & \N & \N \\
+        \N & \N & \N[fill=shadeA,circle,draw] \\ 
+    };
+
+    \node[blockmtx=shadeC!15] at (2.5,-0.75) {%
+        \N & \N & \N \\
+        \N & \N[fill=shadeB,draw] & \N \\
+        \N & \N & \N \\ 
+    };
+
+    \node[blockmtx=shadeC!15] at (4,-0.75) {%
+        \N[fill=shadeB,draw]& \N & \N \\
+        \N & \N & \N \\
+        \N & \N & \N[fill=shadeB,draw] \\ 
+    };
+
+    \node[blockmtx=shadeC!15] at (5.5,-0.75) {%
+        \N & \N & \N \\
+        \N & \N[fill=shadeA,draw] & \N \\
+        \N & \N & \N \\ 
+    };
+    \end{scope}
+
+\end{tikzpicture}

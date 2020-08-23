@@ -1,0 +1,28 @@
+\begin{tikzpicture}
+    \draw(0,0) rectangle ++(2,2) node[midway,centered,align=center,font=\small\sffamily] {Visuospatial\\sketchpad};
+    \draw (4.5,1) circle[radius=1] node[align=center] {Central\\executive};
+    \draw(7,0) rectangle ++(2,2) node[midway,centered,align=center,font=\small\sffamily] {Phonological\\loop};
+    \draw[Kite-Kite] (2,2) -- (4.5,2);
+    \draw[Kite-Kite] (2,0) -- (4.5,0);
+    \draw[-Kite] (4.5,2)-- (7,2);
+    \draw[Kite-] (4.5,0)-- (7,0);
+
+    \node[above=0.15cm, align=center] at (1,2) {Visuell-räumlicher\\Notizblock};
+    \node[above=0.15cm, align=center] at (8,2) {Phonologische\\Schleife};
+
+    \begin{scope}[xshift=-0.75cm,yshift=-1.5cm]
+        \foreach \x/\y in {0/0,2/0,3/0,1/1,0/2,1/2,3/2,0/3,1/3,3/3} {
+            \draw[fill=white] (\x/2,-\y/2) rectangle ++(0.5,0.5);
+        }
+
+        \foreach \x/\y in {1/0,0/1,2/1,3/1,2/2,2/3} {
+            \draw[fill=black] (\x/2,-\y/2) rectangle ++(0.5,0.5);
+        }
+    \end{scope}
+    \draw[-Kite] (1-0.75,0-1) -- (1,0);
+
+
+    \node[align=right,right] (hbst) at(8,-2) {4~7~3~9~5~8\\\small Hund Blume Stein Tasse};
+
+    \draw[-Kite] (hbst) -- (8,0);
+\end{tikzpicture} 

@@ -1,0 +1,51 @@
+\begin{tikzpicture}[box/.style={rectangle,draw,text width=1cm,minimum height=1.25cm, fill=shade#1,draw=palette#1,align=center}]
+    \node[draw] (ap1) at(0,0) {\(AP_1\)};
+    \node[draw] (ap2) at(2,0) {\(AP_2\)};
+    \node[draw] (ap3) at(4,0) {\(AP_3\)};
+    \node[draw] (apn) at(7,0) {\(AP_n\)};
+
+    \foreach \a in {1,2,3,n} {
+        \draw[Kite-Kite] (ap\a) -- ++(0,-3.25+1.75);
+    }
+
+    \draw[densely dashed] (-1,-0.85) -- ++(12,0) node[below left] {Netzwerk};
+
+    \fill[gray!10] (-1,-3.25) rectangle ++(12,1.75);
+    \node[right,align=left] at(7,-3.25+1.75/2) {globales Schema der\\verteilten Datenbank};
+    \node[box=A,above] (dbt) at(0,-3) {Teile};
+    \node[box=B,above] (dbp) at(2,-3) {Pers};
+    \node[box=C,above] (dbi) at(4,-3) {Inv};
+    \node[box=A,above] (dbl) at(6,-3) {Lief};
+
+    \draw[densely dashed] (-1,-4) -- ++(12,0) node[above left] {Netzwerk};
+
+
+    \fill[gray!14] (-1,-6.5) rectangle ++(4,2.25);
+
+    \fill[gray!14] (3.5,-6.5) rectangle ++(3,2.25);
+    \fill[gray!14] (7,-6.5) rectangle ++(4,2.25);
+
+    % first
+    \node[box=A,above,scale=0.85] (dbt1) at(-0.25,-5.5) {Teile\textsubscript{1}};
+    \node[box=B,above,scale=0.85] (dbp1) at(1,-5.5) {Pers\textsubscript{1}};
+    \node[box=C,above,scale=0.85] (dbi1) at(2.25,-5.5) {Inv\textsubscript{1}};
+    \node[scale=0.76,below=10pt] at(1,-5.5) {lokales Schema L-DB1};
+
+    % second
+    \node[box=A,above,scale=0.85] (dbt2) at(4.25,-5.5) {Teile\textsubscript{2}};
+    \node[box=B,above,scale=0.85] (dbp2) at(5.75,-5.5) {Pers\textsubscript{2}};
+    \node[scale=0.76,below=10pt] at(5,-5.5) {lokales Schema L-DB2};
+
+    % third
+    \node[box=A,above,scale=0.85] (dbt3) at(7+0.75,-5.5) {Teile\textsubscript{3}};
+    \node[box=C,above,scale=0.85] (dbi2) at(7+2,-5.5) {Inv\textsubscript{2}};
+    \node[box=A,above,scale=0.85] (dbl1) at(7+3.25,-5.5) {Lief};
+    \node[scale=0.76,below=10pt] at(9,-5.5) {lokales Schema L-DB3};
+
+    \begin{scope}[every path/.style={densely dashed}]
+        \draw[paletteA!66!black] (dbt1.north) -- (dbt.south) -- (dbt2.north) (dbt.south) -- (dbt3.north);
+        \draw[paletteB!66!black] (dbp1.north) -- (dbp.south) -- (dbp2.north);
+        \draw[paletteC!66!black] (dbi1.north) -- (dbi.south) -- (dbi2.north);
+        \draw[paletteA!66!black] (dbl1.north) -- (dbl.south);
+    \end{scope}
+\end{tikzpicture}

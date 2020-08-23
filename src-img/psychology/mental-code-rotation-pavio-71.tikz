@@ -1,0 +1,37 @@
+\begin{tikzpicture}
+    \begin{scope}[xshift=0cm]
+        \node[rectangle,align=center,draw,text width=2cm] at (0, 0) {Normal};
+        \node[circle,draw,text width=0.45cm,align=center] (r0) at (-1,-1) {R};
+        \node[below] at (r0.south) {\(0^\circ\)};
+        \node[circle,draw,text width=0.45cm,align=center] (r300) at (1,-1) {\rotatebox{60}{R}};
+        \node[below] at (r300.south) {\(300^\circ\)};
+
+        \node[circle,draw,text width=0.45cm,align=center] (r60) at (-1,-2.5) {\rotatebox{300}{R}};
+        \node[below] at (r60.south) {\(60^\circ\)};
+        \node[circle,draw,text width=0.45cm,align=center] (r240) at (1,-2.5) {\rotatebox{120}{R}};
+        \node[below] at (r240.south) {\(240^\circ\)};
+
+        \node[circle,draw,text width=0.45cm,align=center] (r120) at (-1,-4) {\rotatebox{240}{R}};
+        \node[below] at (r120.south) {\(120^\circ\)};
+        \node[circle,draw,text width=0.45cm,align=center] (r180) at (1,-4) {\rotatebox{180}{R}};
+        \node[below] at (r180.south) {\(180^\circ\)};
+    \end{scope}
+
+    \begin{scope}[xshift=4cm]
+        \node[rectangle,align=center,draw,text width=2cm] at (0, 0) {Spiegelbild};
+        \node[circle,draw,text width=0.45cm,align=center] (r0) at (-1,-1) {\reflectbox{R}};
+        \node[below] at (r0.south) {\(0^\circ\)};
+        \node[circle,draw,text width=0.45cm,align=center] (r300) at (1,-1) {\rotatebox{60}{\reflectbox{R}}};
+        \node[below] at (r300.south) {\(300^\circ\)};
+
+        \node[circle,draw,text width=0.45cm,align=center] (r60) at (-1,-2.5) {\rotatebox{300}{\reflectbox{R}}};
+        \node[below] at (r60.south) {\(60^\circ\)};
+        \node[circle,draw,text width=0.45cm,align=center] (r240) at (1,-2.5) {\rotatebox{120}{\reflectbox{R}}};
+        \node[below] at (r240.south) {\(240^\circ\)};
+
+        \node[circle,draw,text width=0.45cm,align=center] (r120) at (-1,-4) {\rotatebox{240}{\reflectbox{R}}};
+        \node[below] at (r120.south) {\(120^\circ\)};
+        \node[circle,draw,text width=0.45cm,align=center] (r180) at (1,-4) {\rotatebox{180}{\reflectbox{R}}};
+        \node[below] at (r180.south) {\(180^\circ\)};
+    \end{scope}
+\end{tikzpicture}

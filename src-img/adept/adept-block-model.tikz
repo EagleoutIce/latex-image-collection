@@ -1,0 +1,103 @@
+\begin{tikzpicture}[every node/.append style={font=\LARGE\sffamily,execute at begin node={\strut}}, aknot/.style={rectangle,draw,text width=1.65em,align=center,outer sep=0pt,text width=2em,fill=white}]
+\def\Mark#1{%
+    \node[above,scale=0.6] at(#1.north) {\ding{51}};
+}
+\def\Cross#1{%
+    \node[above,scale=0.6] at(#1.north) {\ding{55}};
+}
+\def\Dot#1{%
+    \node[above,xshift=0.25cm,scale=0.7] at(#1.north) {\faCircle};
+}
+
+\def\Cur#1{%
+    \node[above=-0.2cm,scale=0.7] at(#1.north east) {\faCaretUp};
+}
+
+\newcommand\Data[5][black]{%
+    \node[align=left,scale=0.75,#1,inner xsep=0.85em] (#2) at (#3) {#4\small\\\emph{\MakeUppercase{#5}}\vspace*{-0.65\topsep}};
+    \draw[densely dashed,#1] (#2.north west) -- (#2.north east);
+    \draw[densely dashed,#1] (#2.south west) -- (#2.south east);
+}
+    \node[aknot,text width=3.5em] (start) at (0,0) {Start};
+    \node[aknot] (a) at (2, 0) {A};
+    \node[aknot] (ls) at (4, 0) {L\textsubscript{S}};
+    \node[aknot] (b) at (6, 0) {B};
+
+    \node[aknot] (c) at (8, 2.33) {C};
+    \node[aknot] (g) at (8, -2) {G};
+    \node[aknot] (h) at (12, -2) {H};
+
+    \node[aknot] (d) at (10, 3.33) {D};
+    \node[aknot] (e) at (10, 1.33) {E};
+    \node[aknot] (f) at (12, 2.33) {F};
+
+
+    \node[aknot] (i) at (14, 0) {I};
+    \node[aknot] (le) at (16, 0) {L\textsubscript{E}};
+    \node[aknot] (j) at (18, 0) {J};
+    \node[aknot,text width=3.4em] (end) at (20, 0) {End};
+
+    % ands
+    \draw[fill=white] (b.north east) -- ++(0.15,0) |- (b.south east) -- cycle;
+
+    \draw[fill=white] (i.north west) -- ++(-0.15,0) |- (i.south west) -- cycle;
+
+    \draw[-Kite] ([xshift=0.15cm]b.east) to[edge node={node[scale=0.7,above left] {\faCircle}}] (c.west);
+    \draw[-Kite] ([xshift=0.15cm]b.east) to[edge node={node[scale=0.7,below left] {\faCircle}}] (g.west);
+
+    \draw[-Kite] (f.east) -- ([xshift=-0.15cm]i.west);
+    \draw[-Kite] (h.east) -- ([xshift=-0.15cm]i.west);
+
+
+    % xor
+
+    \draw[fill=white,line join=round] (c.north east) -- ($(c.east)+(0.18,0)$) -- (c.south east) -- cycle;
+
+    \draw[fill=white,line join=round] (f.north west) -- ($(f.west)+(-0.18,0)$) -- (f.south west) -- cycle;
+
+    \draw[-Kite] ([xshift=0.18cm]c.east) -- (d.west);
+    \draw[-Kite] ([xshift=0.18cm]c.east) -- (e.west);
+
+    \draw[-Kite] (d.east) -- ([xshift=-0.18cm]f.west);
+    \draw[-Kite] (e.east) -- ([xshift=-0.18cm]f.west);
+
+    % normal graph
+    \graph[edges=-Kite]{(start) -> (a) -> (ls) -> (b), (g) -> (h), (i) -> (le) -> (j) -> (end)};
+
+    % loop
+    \draw[{Circle[open]}-Kite] (le.south) -- ++(0,-4) to[edge node={node[below,scale=0.85] {\T{ET = LOOP\_E}}}] ($(ls.south)+(0,-4)$) -- (ls);
+
+    \draw[densely dashed,-Kite] (e) to[edge node={node[rectangle,fill=shadeA!51!white,scale=0.85,xshift=-0.45cm,yshift=0.35cm] {\T{ET = SOFT\_SYNC\_E}}}] (h);
+    \begin{scope}[on background layer]
+        % background
+
+        \foreach \ix/\iy/\g/\t in {%
+            -1.25/4.25/78/workflow,%
+                2/3.25/69/sequence,%
+                4/2.25/60/loop,%
+                6/1.25/51/parallel branching,%
+                8/0.25/42/sequence%
+            } {
+            \fill[shadeA!\g!white] ($(-1,-3)+(\ix,-\iy)$) node[above right,black,scale=0.75] {\t} rectangle ($(21,4.5)+(-\ix,\iy)$);
+        }
+
+        %% corridor
+        \fill[shadeA!51!white] ($(-1,-3)+(8,2.5)$) rectangle ++(6,1);
+    \end{scope}
+
+    \node[below right, black, scale=0.85] at(-2.25,8.75) {\textbf{Sich in Ausführung befindliche Prozessinstanz mit aktuellen Zustandsmarkierungen}};
+
+    \node[below right, black, scale=0.75] at(7,4.75) {conditional branching};
+    \node[above=0.75cm,scale=0.85] at(ls.north) {\T{NT = STARTLOOP}};
+    \node[above,scale=0.85] at(le.north) {\T{NT = ENDLOOP}};
+
+    \node[below,scale=0.85] at(start.south) {\T{NT = STARTFLOW}};
+    \node[below,scale=0.85] at(end.south) {\T{NT = ENDFLOW}};
+
+    \Mark{start}\Mark{a}\Mark{ls}\Mark{b}
+    % \Dot{start}\Dot{a}\Dot{ls}
+    \draw[-Kite] (start.east) to[edge node={node[scale=0.7,above] {\faCircle}}] (a.west);
+    \draw[-Kite] (a.east) to[edge node={node[scale=0.7,above] {\faCircle}}] (ls.west);
+    \draw[-Kite] (ls.east) to[edge node={node[scale=0.7,above] {\faCircle}}] (b.west);
+    \Cur{c}\Cur{g}
+\end{tikzpicture}

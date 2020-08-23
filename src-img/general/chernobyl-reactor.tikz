@@ -1,0 +1,55 @@
+\begin{tikzpicture}
+    \draw[fill=shadeA] (0,0) rectangle ++ (1,1);
+    \draw[fill=shadeA] (0.45,1) node[above left] {Notkühlung} |- ++(3,1) -- ++(0,-0.1) -| ++(-2.9,-0.9) -- cycle;
+    \draw[fill=shadeA] (0.45,0) |- ++(3,-1) -- ++(0,0.1) -| ++(-2.9,0.9) -- cycle;
+
+    \draw[fill=shadeA] (1.5,-0.95) circle [radius=0.35cm];
+    \node[below] at(1.5,-1.325) {Pumpe};
+
+    % big square
+    \draw[fill=white] (3,-1) rectangle ++ (3.25,3.25);
+
+    % vertical bars
+    \foreach[count=\i] \a in {1,0.38,0.45,0,0.7} {
+        \draw[fill=shadeC] (3.75 + \i/3.25 - 0.1,0.25 + \a) rectangle ++(0.1,2.25);
+    }
+
+    \draw[fill=shadeA] (3,2) rectangle ++ (3.25,0.25);
+
+    \draw[fill=shadeA] (3.25,-1) rectangle ++ (0.5,3);
+    \draw[fill=shadeA] (5.5,-1) rectangle ++ (0.5,3);
+
+    % lines on bottom
+    \foreach \i in {0.07,0.14,...,0.46} {
+        \draw (3.25 + 0.01 + \i, -1) -- ++(0,1.25);
+        \draw (5.5 + 0.01 + \i, -1) -- ++(0,1.25);
+    }
+
+    \draw (3.25+0.01 + 0.5/2, -1-0.125) -- ++(0,-0.75);
+    \draw (5.5+0.01 + 0.5/2, -1-0.125) -- ++(0,-0.75);
+
+
+    \node[above] at(3 + 3.25/2, -1) {Reaktor};
+
+    \node[below=1cm] (dmb) at(3 + 3.25/2, -1) {Druckrohre mit Brennstäben};
+
+    \node[above] at(3 + 3.25/2, 3.75) {Brems-/Steuerstäbe};
+
+    \draw[fill=shadeA] (6.25,2) -| ++(2,-2.9) -| ++(1.5,3.8) -| ++(-1.9,0.1) -| ++(2,-4) -| ++(-1.5-0.1-2, 0.1) -| ++(1.9, 2.8) -- ++(-1.9, 0) -- cycle;
+    
+    \draw[fill=shadeA] (7.25,-0.95) circle [radius=0.35cm];
+    \node[below] at(7.25,-1.325) {Pumpe};
+
+
+    \draw[fill=shadeA] (9.75-0.45,-0.5) rectangle ++(1,1);
+    \node[below right] at(9.75+0.1,-0.5) {Kühlsystem};
+
+    \draw[fill=shadeA] (9.75+0.05,1.75) ellipse [x radius=0.4, y radius=0.65];
+    \draw[fill=shadeB] (9.75+0.05,1.75) ellipse [x radius=0.2, y radius=0.35];
+    \node[above right] at(9.75 + 0.1, 1.75+0.5) {Dampfturbinen};
+    \draw[-Kite] (9.75+0.05+0.4,1.75) -- ++(0.7,0);
+
+    \draw[fill=shadeB] (7.75+0.05,2.45) ellipse [x radius=0.35, y radius=0.55];
+    \node[above right,xshift=-1cm] at(7.75,2.45 + 0.55) {Wasser/Dampftrennung};
+
+\end{tikzpicture}
