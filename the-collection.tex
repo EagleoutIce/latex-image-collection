@@ -72,7 +72,7 @@
 \newcommand{\showcase}[2]{%
 \subsection{Graphic: #2}%
 \begin{center}
-    \DefaultBox{#1}{#2}{\CurrentPalette{} palette}
+    {\UsePalette{Rainbow}\DefaultBox{#1}{#2}{\CurrentPalette{} palette}}
     {\rndP\UsePalette{\rndPalette}\DefaultBox{#1}{#2}{\CurrentPalette{} palette (random)}}
     {\UsePalette{GrayPrint}\DefaultBox{#1}{#2}{\CurrentPalette{} palette}}
 \end{center}
