@@ -1,0 +1,18 @@
+\begin{tikzpicture}
+    \begin{axis}[%
+        ybar=-16pt, bar width=16pt, symbolic x coords={Wake-day,Wake-night,Sleep,After sleep, After wake},xtick=data,
+        ylabel={\scriptsize\sffamily Subjects gaining insight (\%)}, legend pos=outer north east,enlarge x limits=0.125,x=5em,ymajorgrids,ymax=75%
+    ]
+    \addplot[fill=shadeA] coordinates {
+        (Wake-day,22) (Wake-night,22) (Sleep,59) (After sleep, 0) (After wake, 0)
+    };
+
+    \addplot[fill=shadeC,postaction={pattern=north east lines}] coordinates {
+        (After sleep,28) (After wake,28)
+    };
+
+    \draw (axis cs:Wake-day,60) -- (axis cs:Wake-day,63) to[edge node={node[above] {\(P = 0.014\)}}] (axis cs:Sleep,63) -- (axis cs:Sleep,60);
+
+    \draw (axis cs:Sleep,60) -- (axis cs:Sleep,63) to[edge node={node[above] {\(P = 0.029\)}}] (axis cs:After wake,63) -- (axis cs:After wake,60);
+\end{axis}
+\end{tikzpicture}
