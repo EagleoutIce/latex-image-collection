@@ -1,0 +1,22 @@
+\begin{tikzpicture}[every node/.style={font=\scriptsize\sffamily}]
+    % #1 where, #2 filcol
+    % #3 number
+    \def\drawpack#1#2#3{
+        \draw[fill=palette#2] (#1) rectangle ++(0.1,0.85);
+        \node[above,scale=0.45] at($(#1)+(0.1/2,0.85)$) {#3};
+    }
+
+    \foreach[count=\i] \col in {A,A,A,A,A,A,A,A,A,B,B,B,B,B,B,B,B,B,C,C,C,C,D,D,D,D,D} {
+        \drawpack{\i/4,0}{\col}{\i}
+    }
+
+    \draw[decoration={brace,mirror},decorate] (1.5+1-0.1/2,-0.1) to node[midway,centered,below=3pt] {Fenster, Größe: \(N = 13\)} ++(13/4-0.1/2,0) ;
+
+    \draw (1/4-0.1/2,0.85+0.1+0.1) --node[midway, above,scale=0.75] {sent, ACK'ed} ++(9/4-0.1/2,0);
+    \draw (10/4-0.1/2,0.85+0.1+0.1) --node[midway, above,scale=0.75,align=center] {(in flight)\\sent, not yet ACK'ed} ++(9/4-0.1/2,0);
+
+    \draw (19/4-0.1/2,0.85+0.1+0.1) --node[midway, above,scale=0.75,align=center] {(not sent)\\usable} ++(4/4-0.1/2,0);
+
+    \draw (23/4-0.1/2,0.85+0.1+0.1) --node[midway, above,scale=0.75,align=center] {not usable} ++(5/4-0.1/2,0);
+
+\end{tikzpicture}

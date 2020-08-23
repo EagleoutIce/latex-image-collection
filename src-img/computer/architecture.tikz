@@ -1,0 +1,25 @@
+\begin{tikzpicture}[rb/.style={fill=shadeB}, every node/.style={font=\sffamily}, cen/.style={midway,centered}]
+    \foreach \x in {0,...,2} {
+        \draw[fill=shadeA] (2*\x,0) rectangle ++(1,1);
+    }
+    \draw[fill=shadeC] (2*3,0) rectangle ++(1,1);
+    
+    \node[right] at (7.25,0.5) {Anwendungen};
+    \draw[very thick] (0,-0.25) -- ++(7,0);
+    
+    \draw[fill=shadeC] (0,-0.5) rectangle ++(7,-4);
+    
+    \draw[rb] (0.25,-0.65) rectangle ++ (6.5,-0.25) ++(0.5,0) node[right,yshift=0.1cm] {Systemaufrufschnittstelle};
+    \draw[rb] (0.25,-1) rectangle ++ (6.5,-1.25) node[cen] {\Large Kernel};
+    \draw[rb] (1.25,-2.35) rectangle ++ (4.5,-0.75) node[cen] {\Large E/A-Subsystem};
+    \draw[rb] (0.25,-3.2) rectangle ++ (6.5,-0.25) ++(0.5,0) node[right,yshift=0.1cm] {E/A-Treiberschnittstelle};
+    \foreach \x/\l in {0/Disk,1/TTY,2/Tape} {
+        \draw[rb] (2.375*\x+0.25,-4.35) rectangle ++(1.75,0.8) node[cen] {\Large\l};
+        \foreach \sx in {0.4,1.35} {
+            \draw[thick,Kite-Kite] (2.375*\x+0.25+\sx,-4.35) -- ++(0,-0.75);
+        }
+    }
+    \node[right] at(7.25,-3.95) {Treiber};
+    
+    \draw[fill=shadeD] (0,-5.1) rectangle ++(7,-0.5) node[cen] {Geräte};
+    \end{tikzpicture} 

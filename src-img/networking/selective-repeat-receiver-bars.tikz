@@ -1,0 +1,28 @@
+\begin{tikzpicture}[every node/.style={font=\scriptsize\sffamily}]
+    % #1 where, #2 filcol
+    \def\drawpack#1#2{
+        \draw[fill=palette#2] (#1) rectangle ++(0.1,0.85);
+    }
+
+    \foreach[count=\i] \col in {A,A,A,A,A,A,A,A,A,B,D,B,D,B,B,D,C,C,C,C,C,C,A,A,A,A,A} {
+        \drawpack{\i/4,0}{\col}
+    }
+
+    \draw[decoration={brace,mirror},decorate] (1.5+1-0.1/2,-0.1) to node[midway,centered,below=3pt] {Fenster, Größe: \(N = 13\)} ++(13/4-0.1/2,0) ;
+    
+    % Die Legende
+    \node[right=0.15/2,align=left] (aackd) at(30/4,0.85+0.15/2) {out of order\\(buffered) but\\already ack'ed};
+    \drawpack{$(aackd.west)+(-0.15/2,-0.85/2)$}{D}% Already ACKeD hihi
+    \node[right=0.15/2,align=left] (snjackd) at(30/4,0-0.15/2) {expected, not\\yet received};
+    \drawpack{$(snjackd.west)+(-0.15/2,-0.85/2)$}{B}% Send Not Jet ACKeD
+
+    \node[right=0.15/2,align=left] (unsend) at(38/4,0.85+0.15/2) {acceptable\\(within window)};
+    \drawpack{$(unsend.west)+(-0.15/2,-0.85/2)$}{C}% Usable Not SEND
+    \node[right=0.15/2,align=left] (nuseablej) at(38/4,0-0.15/2) {not usable\\yet};
+    \drawpack{$(nuseablej.west)+(-0.15/2,-0.85/2)$}{A}% No USABLE Jet
+
+    \draw[Kite-] (10/4+0.1/2,0.85) -- ++(0,0.45) node[above] {\T{rcv\_base}};
+
+    % bounding box faker
+    \node at(46/4,0) {};
+\end{tikzpicture}

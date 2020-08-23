@@ -1,0 +1,51 @@
+\begin{tikzpicture}[every node/.style={font={\sffamily}, transform shape}, router size/.style={scale=0.175}, tiny router size/.style={scale=0.1},scale=0.75,link/.style={},box/.style={rectangle,draw=#1,thick,align=center},box/.default=paletteA]
+
+    % fabric, s(witching) f(abric)
+
+    \node[box,minimum height=4cm,below right] (sf) at(4.5,-0.5) {High-Speed\\Switching\\Fabric};
+
+    % processor, r(outing) p(rocessor)
+    \node[box] (rp) at([yshift=1.5cm]sf.north) {Routing\\Processor};
+
+    \draw[Kite-Kite] (sf)--(rp);
+
+    % Lines
+
+    \foreach \y in {-1.5,-3.5} {
+        \draw[-Kite] (0,\y) -- ++(4.5,0);
+
+        % Draw the boxes
+        \draw (0.75,\y cm+15pt) rectangle ++(3,-30pt);
+        \draw[paletteB,thick] (0.95,\y cm+6pt) rectangle ++(0.75,-12pt);
+        \draw[paletteC,thick] (0.95+0.75+0.2,\y cm+10pt) rectangle ++(0.75,-20pt);
+        \draw[paletteD,thick] (0.95+2*0.75+2*0.2,\y cm+10pt) rectangle ++(0.75,-20pt);
+
+        \draw[-Kite] ($(sf.north east)+(0,\y+0.5)$) -- ++(4.5,0);
+
+        \coordinate (init-right) at($(sf.north east)+(0,\y+0.5)$);
+
+        % offset from right
+        \draw (init-right)++(0.75,15pt) rectangle ++(3,-30pt);
+
+        \draw[paletteB,thick] (init-right)++(0.95+2*0.75+2*0.2,6pt) rectangle ++(0.75,-12pt);
+        \draw[paletteC,thick] (init-right)++(0.95+0.75+0.2,10pt) rectangle ++(0.75,-20pt);
+        \draw[paletteD,thick] (init-right)++(0.95,10pt) rectangle ++(0.75,-20pt);
+
+    }
+
+    \node[scale=1.5] (xl) at (0.95+0.75+0.2+0.75/2,-2.5 cm+5pt) {\(\vdots\)};
+    \node[scale=1.5] at ([xshift=6.2cm]xl.east) {\(\vdots\)};
+
+    % Expl arrow
+
+    \draw[-Kite] (rp.west) -| (0.95+2*0.75+2*0.2+0.75/2,-3.5cm+10pt);
+
+    \node[left,scale=0.75,align=right,text width=5.5cm] at([xshift=-1.5cm]rp.west) {Die Routingtabellen werden den Eingangsports bereit gestellt};
+    % Divider:
+
+    \draw[densely dashed] (0,0) -- ++(12,0) node[above left,align=right,scale=0.75] {Routing Algorithmus \& Management:\\Control Plane (software)} node[below left,align=right,scale=0.75] {Datagrammweiterleitung\\Data Plane (hardware)};
+
+    \node[left=17pt] at(sf.south west) {Router Eingangsports};
+    \node[right=15pt] at(sf.south east) {Router Ausgangsports};
+
+\end{tikzpicture}
