@@ -1,0 +1,30 @@
+\begin{tikzpicture}[blk/.style={rectangle,draw,fill=shadeA, align=center,font=\footnotesize}, minimum height=2.125cm, text width=3cm]
+    \node[blk] (a) at(0,0) {Sozialer/\\Gruppenkontext:\\\textbf{Bedrohlich}};
+    \node[blk,fill=shadeC] (b) at(0,-3) {Persönlichkeit:\\\textbf{Soziale Konformität}};
+    
+    \node[blk,fill=shadeC] (c) at(4,-1.5) {Weitsicht:\\\textbf{Gefährliche Welt}};
+    \node[blk,fill=shadeC] (d) at(8,-1.5) {\textbf{Rechter Autoritarismus}};
+    \node[blk] (e) at(12,-1.5) {\textbf{Negative Einstellung}\\gegenüber bedrohlichen Fremdgruppen.};
+    \begin{scope}[every path/.style={-Kite}]
+        \draw (a) -- (c);
+        \draw (b) -- (c);
+        \draw (c) -- (d);
+        \draw (d) -- (e);
+    \end{scope}
+
+    \begin{scope}[yshift=-6.5cm]
+        \node[blk] (a) at(0,0) {Sozialer/\\Gruppenkontext:\\\textbf{Kompetitiv}};
+        \node[blk,fill=shadeC] (b) at(0,-3) {Persönlichkeit:\\\textbf{Kompromisslosigkeit}};
+
+        \node[blk,fill=shadeC] (c) at(4,-1.5) {Weitsicht:\\\textbf{Kompetitiver Dschungel}};
+        \node[blk,fill=shadeC] (d) at(8,-1.5) {\textbf{Soziale Dominanzorientierung}};
+        \node[blk] (e) at(12,-1.5) {\textbf{Negative Einstellung}\\gegenüber konkurrierenden Fremdgruppen oder solchen mit geringem Status.};
+
+        \begin{scope}[every path/.style={-Kite}]
+            \draw (a) -- (c);
+            \draw (b) -- (c);
+            \draw (c) -- (d);
+            \draw (d) -- (e);
+        \end{scope}
+    \end{scope}
+\end{tikzpicture}

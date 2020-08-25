@@ -1,0 +1,38 @@
+\begin{tikzpicture}
+    \begin{scope}[canvas is xy plane at z=-7]
+        \draw (0,0) rectangle ++(4,2.25);
+        \node[right] at(4,1.125) {600\,ms};
+
+        \draw[rounded corners] (0.25,0.25) rectangle ++(1.4,1.75);
+        \node[align=center] at(0.25+1.4/2,0.25+1.75/2) {\Large7\\[0.1cm]\(\spadesuit\)};
+        \draw[rounded corners] (2.25,0.25) rectangle ++(1.4,1.75);
+        \node[align=center] at(2.25+1.4/2,0.25+1.75/2) {\Large6\\[0.1cm]\(\spadesuit\)};
+    \end{scope}
+
+    \begin{scope}[canvas is xy plane at z=-3.5]
+        \draw[fill=white] (0,0) rectangle ++(4,2.25);
+        \node[right] at(4,1.125) {250\,ms};
+    \end{scope}
+
+    \begin{scope}[canvas is xy plane at z=0]
+        \draw[fill=white] (0,0) rectangle ++(4,2.25) node[midway, centered] {\Huge Gamble};
+        \node[right] at(4,1.125) {300\,ms};
+    \end{scope}
+
+    \begin{scope}[canvas is xy plane at z=3.5]
+        \draw[fill=white] (0,0) rectangle ++(4,2.25);
+        \node[right] at(4,1.125) {250\,ms};
+    \end{scope}
+
+    \begin{scope}[canvas is xy plane at z=7]
+        \draw[fill=white] (0,0) rectangle ++(4,2.25);
+        \node[right] at(4,1.125) {100\,ms};
+        \node[rectangle,draw,rounded corners,align=center,minimum height=1.5cm, text width=3cm,scale=0.65] at (2,1.65) {Would you like to bet or pass?};
+
+        \node[rectangle,draw,rounded corners,align=center, text width=1.5cm,fill=shadeA,fill opacity=0.75,font=\tiny] at (1,0.5) {Click here to BET.};
+        \node[rectangle,draw,rounded corners,align=center, text width=1.5cm,fill=shadeA,fill opacity=0.75,font=\tiny] at (3,0.5) {Click here to PASS.};
+    \end{scope}
+
+    \draw[-Kite] (0,2.5,-7) -- (0,2.5,7);
+
+\end{tikzpicture}
