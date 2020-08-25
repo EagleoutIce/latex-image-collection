@@ -8,6 +8,8 @@
 %% this package in a document to compile the presented tikz-codes.
 %%
 
+\errorcontextlines 9999
+
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{image-base}[2020/08/21 EagleoutIce - Base-Package for all src-img]
 
@@ -23,5 +25,13 @@
 \pgfmathsetseed{\number\pdfrandomseed}
 \pgfmathdeclarerandomlist{palettes}{{Water}{GraySun}{ClayGrass}{PurpleCoin}{Moonshine}{BloodyGrass}{SourCandy}{PurpleSand}{Rainbow}{Crimson}}
 \def\rndP{\pgfmathrandomitem{\rndPalette}{palettes}}
+
+\newcommand*{\entity}[3][]{%
+\node[minimum width = 2.25cm, minimum height = 2em, rectangle, draw,fill=shadeA] at #2 (#3) {\parbox{2.25cm}{\centering #1{#3}}};}
+%\draw[rotate around={45:#2}] #2++(-0.6,-0.6) rectangle ++ (1.2,1.2);
+\newcommand*{\relation}[3][]{\draw[fill=shadeB] #2++(-1,0) -- ++(1,0.5) -- ++(1,-0.5) -- ++(-1,-0.5) -- ++(-1,0.5); \node[minimum height=1.985*0.5cm] at #2 (#3) {\parbox{1.73cm}{\centering\small #1{#3}}};}
+\newcommand*{\attribute}[3][]{\node[minimum width = 1cm, minimum height = 2em, ellipse, draw, fill=shadeC] at #2 (#3) {\parbox{1.1cm}{\centering\footnotesize #1{#3}}};}
+%% Key attribute
+\newcommand*{\kattribute}[3][]{\attribute[#1\underline]{#2}{#3};}
 
 \endinput

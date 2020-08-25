@@ -10,7 +10,7 @@
 
     \draw[densely dashed] (-1,-0.85) -- ++(12,0) node[below left] {Netzwerk};
 
-    \fill[gray!10] (-1,-3.25) rectangle ++(12,1.75);
+    \fill[gray!13] (-1,-3.25) rectangle ++(12,1.75);
     \node[right,align=left] at(7,-3.25+1.75/2) {globales Schema der\\verteilten Datenbank};
     \node[box=A,above] (dbt) at(0,-3) {Teile};
     \node[box=B,above] (dbp) at(2,-3) {Pers};
