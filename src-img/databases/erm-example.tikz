@@ -18,7 +18,7 @@
     \draw(liefert) -- (Preis);
 
     %% Lieferanten
-    \kattribute{(3.5*\ttw,4.75*\tth)}{LiefNr}; \attribute[\tiny]{(4.5*\ttw,4.75*\tth)}{LiefName};
+    \kattribute{(3.5*\ttw,4.75*\tth)}{LiefNr}; \attribute[\scriptsize]{(4.5*\ttw,4.75*\tth)}{LiefName};
     \attribute{(5*\ttw,4*\tth)}{LiefStadt}; \attribute{(5*\ttw,3.5*\tth)}{Bewert};
     \draw(LiefNr)--(Lieferanten) -- (LiefName) (LiefStadt) -- (Lieferanten) -- (Bewert);
 
