@@ -1,0 +1,47 @@
+\bgroup\makeatletter\@ifundefined{@@slcrBox}{\newsavebox{\@@slcrBox}}{}%
+\savebox{\@@slcrBox}{%
+    \begin{tikzpicture}%
+        \node[align=center] (1) at (0:2.5cm) {Negative\\Thoughts};
+        \node[align=center] (2) at (120:2.5cm) {Negative\\Emotions};
+        \node[align=center] (3) at (240:2.5cm) {Appraisal\\Processes};
+
+        \draw[Kite-Kite] (1) to[bend right] (2);
+        \draw[Kite-] (2) to[bend right] (3);
+        \draw[-Kite] (3) to[bend right] (1);
+    \end{tikzpicture}%
+}%
+\begin{tikzpicture}[block/.append style={minimum width=2.85cm,align=center}]
+    \node[block] (1) at(0,0) {Stereotype\\Threat};
+
+    \node[block,scale=0.75] (2) at(5.5,0) {%
+        \usebox{\@@slcrBox}
+    };
+
+    \node[block,fill=shadeA] (3) at(3.5,4.5) {Physiological\\Stress Response};
+    \node[block,fill=shadeA] (4) at(3.5,-4.5) {Monitoring\\Processes};
+    \node[block,fill=shadeA] (5) at(12,0) {Suppression\\Processes};
+
+    \node[block] (6) at(17,0) {Working Memory\\Efficiency};
+    \node[block] (7) at(17,-4.5) {Performance on\\Sensorimotor Tasks\\\small(automatic processing)};
+    \node[block] (8) at(17,4.5) {Performance on\\Cognitive \& Social Tasks\\\small(controlled processing)};
+
+    \begin{scope}[every path/.style={-Kite}]
+        \draw (1) to[edge label=b] (3);
+        \draw (1) to[edge label=d] (4);
+        \draw[Kite-Kite] (1) to[edge label=f] (2);
+        \draw[Kite-Kite] (3) to[edge label=g] (2);
+        \draw[Kite-Kite] (4) to[edge label=h] (2);
+        \draw[Kite-Kite] (2) to[edge label=i] (5);
+        \draw (5) to[edge node={node[above] {k}}] (3);
+        \draw (5) to[edge label=l] (4);
+        \draw (5) to[edge node={node[above=0.05cm,circle,draw] {\bfseries j}}] (6);
+        \draw (3) to[edge node={node[above=0.1cm,circle,draw] {\bfseries c}}] (6);
+        \draw (4) to[edge node={node[above=0.1cm,circle,draw] {\bfseries e}}] (6);
+
+        \draw (4) to[edge label=m] (7);
+        \draw (6) to[edge label=a] (8);
+
+    \end{scope}
+
+\end{tikzpicture}
+\egroup
