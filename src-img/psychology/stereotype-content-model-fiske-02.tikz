@@ -1,0 +1,56 @@
+\begin{tikzpicture}
+    \def\TDot#1#2#3{%
+        \fill (#2) circle [radius = 1pt];
+        \node[#1=-0.025cm] at(#2) {\scriptsize#3};
+    }%
+    \draw[-Kite] (0,0) node[below left] {Low} -- (13.75,0) node[below] {High};
+    \draw[-Kite] (0,0) -- (0,6.5) node[left] {High};
+
+    \node at (13.75/2,-0.85) {Competence};
+    \node[rotate=90] at (-0.85,6.5/2) {Warmth};
+
+    \draw[fill=shadeA] (2,1.25) ellipse [x radius=1.75, y radius=1];
+    \node[scale=0.75] at(2,1.25) {\faStar};
+
+    \TDot{right}{1.15,0.65}{Homeless};
+
+    \TDot{right}{1,1.75}{Welfare recipients};
+    \TDot{right}{2.25,0.95}{Poor};
+
+    \draw[fill=shadeA] (3.75,5.25) ellipse [x radius=2, y radius=1];
+    \node[scale=0.75] at(3.75,5.25) {\faStar};
+
+    \TDot{above right}{2.35,4.75}{Retarded};
+    \TDot{left}{4.85,5.85} {Elderly};
+    \TDot{right}{3.75,4.7}{Disabled};
+
+    \draw[fill=shadeA] (7.25,3.25) ellipse [x radius=1.55, y radius=1.55];
+    \node[scale=0.75] at(7.25,3.25) {\faStar};
+
+    \TDot{below left}{7.5,4.55}{Gay men};
+    \TDot{below left}{8.1,4.25}{Blue-collar};
+    \TDot{above}{7.35,3.5}{Native Americans};
+    \TDot{above}{8,3.2}{Blacks};
+    \TDot{above}{6.5,3.2}{Young};
+    \TDot{below}{7.65,2.9}{Muslims};
+    \TDot{right}{6.4,2.2}{Hispanics};
+
+    \draw[fill=shadeA] (10.25,5) ellipse [x radius=1.25, y radius=1.25];
+    \node[scale=0.75] at(10.25,5) {\faStar};
+
+    \TDot{below}{10.25,6.125}{Christians};
+    \TDot{below right}{9.5,5.75}{Women};
+    \TDot{right}{9.75,5.25}{Middle class};
+    \TDot{left}{10.75,4.65}{Whites};
+    \TDot{above}{10.25,3.95}{Students};
+
+    \draw[fill=shadeA] (12.5,3.25) ellipse [x radius=1.25, y radius=1.75];
+    \node[scale=0.75] at (12.5,3.25) {\faStar};
+
+    \TDot{below}{12.5,4.75}{Educated};
+    \TDot{above right}{12.25,1.75}{Rich};
+    \TDot{left}{13.35,3.85}{Professionals};
+    \TDot{above right}{11.5,3.25}{Asians};
+    \TDot{right}{11.65,2.85}{Jews};
+    \TDot{below right}{12.17,2.725}{Men};
+\end{tikzpicture}%
