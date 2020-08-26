@@ -10,7 +10,7 @@
         \draw[-Kite] (3) to[bend right] (1);
     \end{tikzpicture}%
 }%
-\begin{tikzpicture}[block/.append style={minimum width=2.85cm,align=center}]
+\begin{tikzpicture}[block/.append style={minimum width=2.85cm,align=center}]%
     \node[block] (1) at(0,0) {Stereotype\\Threat};
 
     \node[block,scale=0.75] (2) at(5.5,0) {%
@@ -42,6 +42,5 @@
         \draw (6) to[edge label=a] (8);
 
     \end{scope}
-
-\end{tikzpicture}
-\egroup
+\end{tikzpicture}%
+\egroup%
