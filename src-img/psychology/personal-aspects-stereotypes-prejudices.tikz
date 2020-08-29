@@ -27,4 +27,4 @@
             \draw (d) -- (e);
         \end{scope}
     \end{scope}
-\end{tikzpicture}
+\end{tikzpicture}%

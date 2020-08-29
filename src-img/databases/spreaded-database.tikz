@@ -48,4 +48,4 @@
         \draw[paletteC!66!black] (dbi1.north) -- (dbi.south) -- (dbi2.north);
         \draw[paletteA!66!black] (dbl1.north) -- (dbl.south);
     \end{scope}
-\end{tikzpicture}
+\end{tikzpicture}%

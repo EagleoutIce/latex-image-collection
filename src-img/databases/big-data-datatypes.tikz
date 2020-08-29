@@ -11,7 +11,6 @@
         \draw[black!#3,fill=gray!#3,xstep=0.15,ystep=0.05,xshift=#1 cm,yshift=#2 cm-0.15cm,line join=round, line cap=round,thin,rounded corners=1pt] (0,0) grid ++(0.9,-0.05*11);
     }
 
-
     \Tables{0.2}{1.12}{90}
     \Tables{0.4}{1.05}{70}
 
@@ -62,7 +61,6 @@
     
     \Video{4.85}{1.175}
 
-
     \def\Audio#1#2{
         \fill[lightgray!45] (#1,#2) rectangle ++(0.1,-0.45);
         \fill[lightgray!65] (#1+0.1,#2) -- ++(0.2,0.15) -- ++(0,-0.75) -- ++(-0.2,0.15) -- cycle;
@@ -103,9 +101,7 @@
 
     \Sensor{10.5}{0.35}
 
-
     \node[above=0.125cm,font=\mdseries\sffamily\itshape,scale=0.8,align=center] (d1) at (0.75,1.5) {Structured Data};
     \node[above=0.125cm,font=\mdseries\sffamily\itshape,scale=0.8,align=center] (d2) at (4.75,1.5) {Unstructured Data};
     \node[above=0.125cm,font=\mdseries\sffamily\itshape,scale=0.8,align=center] (d3) at (9.75,1.5) {Semi-structured Data};
-
-\end{tikzpicture}
+\end{tikzpicture}%

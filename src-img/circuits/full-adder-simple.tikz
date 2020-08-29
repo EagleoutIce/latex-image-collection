@@ -36,4 +36,4 @@
 
     \draw[blkfil] (xor1.north west) rectangle (and1.south east);
     \draw[blkfil] (xor2.north west) rectangle (and2.south east);
-\end{tikzpicture}
+\end{tikzpicture}%

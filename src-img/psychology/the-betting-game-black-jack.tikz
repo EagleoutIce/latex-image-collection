@@ -34,5 +34,4 @@
     \end{scope}
 
     \draw[-Kite] (0,2.5,-7) -- (0,2.5,7);
-
-\end{tikzpicture}
+\end{tikzpicture}%

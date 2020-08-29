@@ -15,6 +15,4 @@
     \end{scope}
 
     \draw[-Kite] (Repository) to[out=138,in=43,looseness=1.95,edge node={node[above] {\scriptsize Versionierung}}] (Repository);
-
-
-\end{tikzpicture}
+\end{tikzpicture}%

@@ -22,4 +22,4 @@
     \node[right] at(7.25,-3.95) {Treiber};
     
     \draw[fill=shadeD] (0,-5.1) rectangle ++(7,-0.5) node[cen] {Geräte};
-\end{tikzpicture}
+\end{tikzpicture}%

@@ -19,4 +19,4 @@
     \draw[densely dotted] (Version 40) -- ++(0,-0.5);
 
     \node[below] at(0.25,2.25) {\footnotesize Lokaler Computer};
-\end{tikzpicture}
+\end{tikzpicture}%

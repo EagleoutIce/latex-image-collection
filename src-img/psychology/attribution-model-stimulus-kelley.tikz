@@ -24,4 +24,4 @@
         \draw (0,0) grid ++(4,4);
         \fill[fill=shadeB] (0,1) rectangle ++(4,1);
     \end{scope}
-\end{tikzpicture}
+\end{tikzpicture}%

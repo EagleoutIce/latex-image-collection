@@ -45,4 +45,4 @@
     \node at (3.5,2.5) {1};
     \node at (3.5,3.5) {0};
 
-\end{tikzpicture}
+\end{tikzpicture}%

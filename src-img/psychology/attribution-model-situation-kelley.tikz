@@ -24,4 +24,4 @@
     \begin{scope}[canvas is yz plane at x=4]
         \draw (0,0) grid ++(4,4);
     \end{scope}
-\end{tikzpicture}
+\end{tikzpicture}%

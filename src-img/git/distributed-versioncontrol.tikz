@@ -57,4 +57,4 @@
     \draw[rounded corners,Kite-Kite] (developer-2) |- (server);
     \draw[rounded corners,Kite-Kite] (developer-1) -- (developer-2);
 
-\end{tikzpicture}
+\end{tikzpicture}%

@@ -50,4 +50,4 @@
 
         \descNode[left]{(bpkard) -- ++(-1.25,0)}{Kardinalität}{Ein Liefr. erhält bel. viele Bestellungen};
     \end{scope}
-\end{tikzpicture}
+\end{tikzpicture}%

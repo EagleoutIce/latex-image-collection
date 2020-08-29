@@ -59,8 +59,6 @@
     \end{scope}
 
     % Legend
-
     \node at(1,-2.75) {Prototyp};
     \node at(-3,-2.75) {Kategorienmitglieder};
-
-\end{tikzpicture}
+\end{tikzpicture}%

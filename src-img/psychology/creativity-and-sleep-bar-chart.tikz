@@ -15,4 +15,4 @@
 
     \draw (axis cs:Sleep,60) -- (axis cs:Sleep,63) to[edge node={node[above] {\(P = 0.029\)}}] (axis cs:After wake,63) -- (axis cs:After wake,60);
 \end{axis}
-\end{tikzpicture}
+\end{tikzpicture}%

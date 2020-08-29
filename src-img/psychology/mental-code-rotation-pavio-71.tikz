@@ -34,4 +34,4 @@
         \node[circle,draw,text width=0.45cm,align=center] (r180) at (1,-4) {\rotatebox{180}{\reflectbox{R}}};
         \node[below] at (r180.south) {\(180^\circ\)};
     \end{scope}
-\end{tikzpicture}
+\end{tikzpicture}%

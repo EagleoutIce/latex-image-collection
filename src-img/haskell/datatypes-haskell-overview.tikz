@@ -32,9 +32,10 @@
         \draw (Floating) -- (Fractional);
         \draw (RealFloat) -- (RealFrac); \draw (RealFloat) -- (Floating);
     \end{scope}
-    \draw (Enum)++(-1.5,0) node[left] {\small\sffamily\parbox{2.4cm}{Ermöglicht Listengenerierung getreu: \texttt{[a..b]}}};
-    \draw (Eq)++(-1.5,0) node[left] {\small\sffamily\parbox{2.4cm}{Ermöglicht Patternmatching}};
-    \draw (Read)++(1.5,0) node[right] {\small\sffamily\parbox{2.4cm}{Einlesen von\\Werten}};
-    \draw (Bounded)++(1.5,0) node[right] {\small\sffamily\parbox{2.4cm}{Es existieren minimum und Maximum}};
+    \def\DescBox#1{\small\sffamily\parbox{2.4cm}{#1}}
+    \draw (Enum)++(-1.5,0) node[left] {\DescBox{Ermöglicht Listengenerierung getreu: \texttt{[a..b]}}};
+    \draw (Eq)++(-1.5,0) node[left] {\DescBox{Ermöglicht Patternmatching}};
+    \draw (Read)++(1.5,0) node[right] {\DescBox{Einlesen von\\Werten}};
+    \draw (Bounded)++(1.5,0) node[right] {\DescBox{Es existieren minimum und Maximum}};
     \draw (Show)++(0,1.5) node {\small\sffamily Anzeigen im \T{ghci}};
-\end{tikzpicture}
+\end{tikzpicture}%

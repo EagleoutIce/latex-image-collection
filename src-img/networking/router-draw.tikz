@@ -48,4 +48,4 @@
     \node[left=17pt] at(sf.south west) {Router Eingangsports};
     \node[right=15pt] at(sf.south east) {Router Ausgangsports};
 
-\end{tikzpicture}
+\end{tikzpicture}%

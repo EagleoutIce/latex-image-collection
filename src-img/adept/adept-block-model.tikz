@@ -100,4 +100,4 @@
     \draw[-Kite] (a.east) to[edge node={node[scale=0.7,above] {\faCircle}}] (ls.west);
     \draw[-Kite] (ls.east) to[edge node={node[scale=0.7,above] {\faCircle}}] (b.west);
     \Cur{c}\Cur{g}
-\end{tikzpicture}
+\end{tikzpicture}%

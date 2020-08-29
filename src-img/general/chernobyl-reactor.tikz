@@ -51,5 +51,4 @@
 
     \draw[fill=shadeB] (7.75+0.05,2.45) ellipse [x radius=0.35, y radius=0.55];
     \node[above right,xshift=-1cm] at(7.75,2.45 + 0.55) {Wasser/Dampftrennung};
-
-\end{tikzpicture}
+\end{tikzpicture}%

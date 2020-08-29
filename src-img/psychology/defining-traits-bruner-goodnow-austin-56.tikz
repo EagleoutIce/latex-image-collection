@@ -107,5 +107,4 @@
         \N & \N & \N \\ 
     };
     \end{scope}
-
-\end{tikzpicture}
+\end{tikzpicture}%

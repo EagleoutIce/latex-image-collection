@@ -65,4 +65,4 @@
         \node[right=0.125cm,paletteC,fill=white] at (vp.east) {AuftragsPosDS};
 
     \end{scope}
-\end{tikzpicture} 
+\end{tikzpicture}%

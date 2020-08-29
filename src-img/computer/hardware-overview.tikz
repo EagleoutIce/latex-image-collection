@@ -25,4 +25,4 @@
 
     \draw[Kite-Kite] (9.15,-1.75) -- (9.75,-2.65);
     \draw[Kite-Kite] (8.85,-1.75) -- (8.25,-2.65);
-\end{tikzpicture}
+\end{tikzpicture}%

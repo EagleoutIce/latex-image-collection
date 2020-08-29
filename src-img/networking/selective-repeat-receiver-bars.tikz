@@ -25,4 +25,4 @@
 
     % bounding box faker
     \node at(46/4,0) {};
-\end{tikzpicture}
+\end{tikzpicture}%

@@ -25,4 +25,4 @@
     \node[align=right,right] (hbst) at(8,-2) {4~7~3~9~5~8\\\small Hund Blume Stein Tasse};
 
     \draw[-Kite] (hbst) -- (8,0);
-\end{tikzpicture} 
+\end{tikzpicture}%
