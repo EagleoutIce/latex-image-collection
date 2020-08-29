@@ -1,0 +1,20 @@
+% Note: Design was changed due to the absence of listings (git add etc.)
+\begin{tikzpicture}[every node/.style={font=\sffamily}]
+    \def\FileDot#1#2#3{
+        \draw[#2!90!white,fill=#2!90!white,rounded corners,thick] (#1) rectangle ++(2,0.5) node[midway,centered,color=black,rectangle,minimum width=2cm,minimum height=0.5cm,white] (#3) {\footnotesize#3};
+    }
+    \foreach[count=\x] \lab/\col in {Untracked/paletteD,Unmodified/paletteA,Modified/paletteB,Staged/paletteC} {
+        \FileDot{3.5*\x,0}{\col}{\lab}
+        \draw[thick] (3.5*\x+1,0) -- ++(0,-6);
+    }
+    % now draw the eat arrows :D
+    \foreach[count=\y] \from/\to/\lab in {%
+        1/4/{\texttt{git add <Datei>}},
+        2/3/{Ändern der Datei},
+        3/4/{\texttt{git add <Datei>}},
+        2/1/{\texttt{git rm <Datei>}},
+        4/2/{\hspace*{3.5cm}\texttt{git commit}}%sloppy offset for sloppy stuff :D
+    } {
+        \draw[-Kite] (3.5*\from+1,-\y) -- (3.5*\to+1,-\y) node[midway,above] {\scriptsize\lab};
+    }
+\end{tikzpicture}%
