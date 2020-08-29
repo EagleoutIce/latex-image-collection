@@ -1,40 +1,39 @@
-\begin{tikzpicture}[scale=0.8,every node/.style={transform shape}]
-    \def\gate#1#2{\node [rectangle,scale=1.5, minimum width =0.67cm, inner sep=0, minimum height = 0.67cm, draw] at #1 {#2};}
-    \def\gateAND#1{\gate{#1}{\(\&\)}}
-    \def\gateOR#1{\gate{#1}{\(\geq 1\)}}
-    \def\gateXOR#1{\gate{#1}{\(=1\)}}
+\begin{tikzpicture}[%
+        scale=0.8,every node/.style={transform shape},%
+        blkfil/.style={fill=shadeA, color=paletteA, fill opacity=0.35, rounded corners=1pt},%
+        gate/.style={scale=1.45, minimum width=0.67cm, inner sep=0, minimum height=0.67cm, draw,outer sep=4.59pt}%
+    ]
+    \def\gate#1#2#3{\node[gate] (#3) at (#1) {#2};}
+    \def\gateAND#1#2{\gate{#1}{$\&$}{#2}}
+    \def\gateOR#1#2{\gate{#1}{$\geq 1$}{#2}}
+    \def\gateXOR#1#2{\gate{#1}{$=1$}{#2}}
     \def\bigRing#1{\fill #1 circle [radius=1.4pt];}
 
-    \draw [fill=shadeA, color=paletteA, fill opacity = 0.35,rounded corners = 1pt] (1.6,3.5) rectangle ++(1.9,-3.1);
-    \draw [fill=shadeA, color=paletteA, fill opacity = 0.35,rounded corners = 1pt] (4.6,1.45-1.85) rectangle ++(1.8,0.8+3.1);
+    \node[left] at (0,3) (x) {\(a_i\)};
+    \node[left] at (0,1) (y) {\(b_i\)};
+    \node[left] at (0,0) (u) {\(c_i\)};
+    \node[right] at (9,2.5) (s) {\(s\)};
+    \node[right] at (9,0.6) (u2) {\(c_{i+1}\)};
 
-    \node[] at (0,-0.305) {};
-    \node[] at (0,3.305) {};
-    \node at (0,3) (x) {\(a_i\)};
-    \node at (0,1) (y) {\(b_i\)};
-    \node at (0,0) (u) {\(c_i\)};
-    \node[right] at (9.3,2.5) (s) {\(s\)};
-    \node[right] at (9.3,0.6) (u2) {\(c_{i+1}\)};
-
-    \draw (x) to ++(2,0); \gateXOR{(2.5,2.7)};
-    \draw (y) to ++(2,0); \gateAND{(2.5,1.3)};
-    \draw (x)++(1.3,0) -- ++(0,-1.4) -- ++(0.7,0);
+    \draw (x) -- ++(2,0); \gateXOR{2.5,2.7}{xor1};
+    \draw (y) -- ++(2,0); \gateAND{2.5,1.3}{and1};
+    \draw (x) ++(1.3,0) |- ++(0.7,-1.4);
     \bigRing{(x)++(1.3,0)};
-    \draw (y)++(0.7,0) -- ++(0,1.4) -- ++(1.3,0);
+    \draw (y)++(0.7,0) |- ++(1.3,1.4);
     \bigRing{(y)++(0.7,0)};
     \draw (3,2.8) -- ++(2,0);
     \draw (u) -- ++(5,0);
     \bigRing{(4.3,0)};
-    \draw (4.3,0) -- ++(0,2.2) -- ++(0.7,0);
-    \gateXOR{(5.5,2.5)};
+    \draw (4.3,0) |- ++(0.7,2.2);
+    \gateXOR{5.5,2.5}{xor2};
     \bigRing{(3.7,2.8)};
-    \draw (3.7,2.8) -- ++(0,-2.2) -- ++(1.3,0);
-    \gateAND{(5.5,0.3)};
-    \draw (3,1.3) -- ++(3.3,0) -- ++(0,-0.4) -- ++(0.7,0);
-    \draw (6,2.5) -- ++(3,0);
-    \draw (6,0.3) -- ++(1,0);
-    \gateOR{(7.5,0.6)};
+    \draw (3.7,2.8) |- ++(1.3,-2.2);
+    \gateAND{5.5,0.3}{and2};
+    \draw (3,1.3) -- ++(3.4,0) |- ++(0.6,-0.4);
+    \draw (6,2.5) -- ++(3,0)  (6,0.3) -- ++(1,0);
+    \gateOR{7.5,0.6}{or};
     \draw (8,0.6) -- ++(1,0);
-    %\gateOR{(1,1)};
 
+    \draw[blkfil] (xor1.north west) rectangle (and1.south east);
+    \draw[blkfil] (xor2.north west) rectangle (and2.south east);
 \end{tikzpicture}

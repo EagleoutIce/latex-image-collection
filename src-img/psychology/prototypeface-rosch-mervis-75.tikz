@@ -9,7 +9,6 @@
     % mouth
     \draw (1,0)++(240:0.45cm) arc (240:300:0.45cm);
 
-
     \begin{scope}[xshift=-5.5cm]
         \draw (1,0) circle [radius=0.65cm];
         % eyes

@@ -1,5 +1,5 @@
 \begin{tikzpicture}[scale=0.75,every node/.style={transform shape}]
-    \newcommand{\typklassendeskriptor}[4][Azure]{\draw[fill=#1,rounded corners = 5pt] #2 rectangle ++ (2.25,2.25) node[midway,centered, minimum width=2.25cm, minimum height = 2.25cm, rectangle, rounded corners=5pt] (#3) {\centering\parbox{2.15cm}{\centering\textbf{\T{#3}}\\\tiny\ttfamily #4\par}\par
+    \newcommand{\typklassendeskriptor}[4][white]{\draw[fill=#1,rounded corners = 5pt] #2 rectangle ++ (2.25,2.25) node[midway,centered, minimum width=2.25cm, minimum height = 2.25cm, rectangle, rounded corners=5pt] (#3) {\centering\parbox{2.15cm}{\centering\textbf{\T{#3}}\smallskip\\{\scriptsize\ttfamily #4}\par}\par
         }; }
 
     \foreach \pos/\col/\nam/\brief in {%
@@ -24,7 +24,7 @@
         \index{Haskell!Typklassen!\nam}
         \typklassendeskriptor[\col]{\pos}{\nam}{\brief};
     };
-    \begin{scope}[every path/.style={thick,-latex}]
+    \begin{scope}[every path/.style={thick,-Kite}]
         \draw (Ord) -- (Eq); \draw (Real) -- (Ord);
         \draw (Real) -- (Num); \draw (Fractional) -- (Num);
         \draw (Integral) -- (Enum); \draw (Integral) -- (Real);
@@ -32,9 +32,9 @@
         \draw (Floating) -- (Fractional);
         \draw (RealFloat) -- (RealFrac); \draw (RealFloat) -- (Floating);
     \end{scope}
-    \draw (Enum)++(-1.5,0) node[left] {\small\sffamily\parbox{4cm}{Ermöglicht Listengenerierung getreu: \texttt{[a..b]}}};
-    \draw (Eq)++(-1.5,0) node[left] {\small\sffamily\parbox{4cm}{Ermöglicht Patternmatching}};
-    \draw (Read)++(1.5,0) node[right] {\small\sffamily\parbox{4cm}{Einlesen von Werten}};
-    \draw (Bounded)++(1.5,0) node[right] {\small\sffamily\parbox{4cm}{Es existieren minimum und Maximum}};
+    \draw (Enum)++(-1.5,0) node[left] {\small\sffamily\parbox{2.4cm}{Ermöglicht Listengenerierung getreu: \texttt{[a..b]}}};
+    \draw (Eq)++(-1.5,0) node[left] {\small\sffamily\parbox{2.4cm}{Ermöglicht Patternmatching}};
+    \draw (Read)++(1.5,0) node[right] {\small\sffamily\parbox{2.4cm}{Einlesen von\\Werten}};
+    \draw (Bounded)++(1.5,0) node[right] {\small\sffamily\parbox{2.4cm}{Es existieren minimum und Maximum}};
     \draw (Show)++(0,1.5) node {\small\sffamily Anzeigen im \T{ghci}};
 \end{tikzpicture}
