@@ -1,0 +1,22 @@
+\begin{tikzpicture}[every node/.append style={font=\sffamily}]
+    \def\FileDot#1#2#3{
+        \draw[#2!90!white,fill=#2!90!white,rounded corners,thick] (#1) rectangle ++(2,0.5) node[midway,centered,color=black,rectangle,minimum width=2cm,minimum height=0.5cm,white] (#3) {\footnotesize#3};
+    }
+    \draw[black!98!white,fill=white!73!lightgray] (-3,-2.75) rectangle (3.5,2.25);
+
+    \FileDot{-2.5,0}{paletteA}{Datei}
+
+    \draw[black!98!white,fill=white] (0.25,-2.5) rectangle ++(3,4);
+    \node[below] at(1.75,1.45) {\footnotesize Datenbank};
+
+    \FileDot{0.75,0}{paletteB}{Version 42}
+    \FileDot{0.75,-1}{paletteB}{Version 41}
+    \FileDot{0.75,-2}{paletteB}{Version 40}
+
+    \draw (Datei) -- (Version 42);
+    \draw (Version 42) -- (Version 41);
+    \draw (Version 41) -- (Version 40);
+    \draw[densely dotted] (Version 40) -- ++(0,-0.5);
+
+    \node[below] at(0.25,2.25) {\footnotesize Lokaler Computer};
+\end{tikzpicture}

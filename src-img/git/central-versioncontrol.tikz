@@ -1,0 +1,20 @@
+\begin{tikzpicture}[every node/.append style={font=\sffamily}]
+    \def\FileDot#1#2#3{
+        \draw[#2!90!white,fill=#2!90!white,rounded corners,thick] (#1) rectangle ++(2,0.5) node[midway,centered,color=black,rectangle,minimum width=2cm,minimum height=0.5cm,white] (#3) {\footnotesize#3};
+    }
+    \FileDot{0,0}{paletteA}{Repository}
+
+    \FileDot{-2.5,-1.25}{paletteB}{Entwickler 1}
+    \FileDot{0,-1.25}{paletteB}{Entwickler 2}
+    \FileDot{2.5,-1.25}{paletteB}{Entwickler 3}
+
+    \begin{scope}[every path/.style={Kite-Kite}]
+        \draw (Repository) -- (Entwickler 1);
+        \draw (Repository) -- (Entwickler 2);
+        \draw (Repository) -- (Entwickler 3);
+    \end{scope}
+
+    \draw[-Kite] (Repository) to[out=138,in=43,looseness=1.95,edge node={node[above] {\scriptsize Versionierung}}] (Repository);
+
+
+\end{tikzpicture}

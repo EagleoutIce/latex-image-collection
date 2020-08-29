@@ -1,0 +1,60 @@
+\begin{tikzpicture}[every node/.append style={font=\sffamily}]
+    \def\FileDot#1#2#3{
+        \draw[#2!90!white,fill=#2!90!white,rounded corners,thick] (#1) rectangle ++(2,0.5) node[midway,centered,color=black,rectangle,minimum width=2cm,minimum height=0.5cm,white] (#3) {\footnotesize#3};
+    }
+
+    \node[scale=0.5,align=center] (developer-1) at(0,0) {\begin{tikzpicture}
+        \draw[black!98!white,fill=white!73!lightgray] (0,-2.5) rectangle ++(3.5,5.25);
+        \FileDot{0.75,2}{paletteA}{Datei}
+
+        \draw[black!98!white,fill=white] (0.25,-2.25) rectangle ++(3,3.75);
+        \node[below] at(1.75,1.45) {\footnotesize Datenbank};
+
+        \FileDot{0.75,0.25}{paletteB}{Version 42}
+        \FileDot{0.75,-0.75}{paletteB}{Version 41}
+        \FileDot{0.75,-1.75}{paletteB}{Version 40}
+
+        \draw[Kite-] (Datei.south) -- ++(0,-0.5);
+        \draw (Version 42) -- (Version 41);
+        \draw (Version 41) -- (Version 40);
+        \draw[densely dotted] (Version 40) -- ++(0,-0.5);
+    \end{tikzpicture}\\[0.25em]Rechner 1};
+
+
+    \node[scale=0.5,align=center] (developer-2) at(4,0) {\begin{tikzpicture}
+        \draw[black!98!white,fill=white!73!lightgray] (0,-2.5) rectangle ++(3.5,5.25);
+        \FileDot{0.75,2}{paletteA}{Datei}
+
+        \draw[black!98!white,fill=white] (0.25,-2.25) rectangle ++(3,3.75);
+        \node[below] at(1.75,1.45) {\footnotesize Datenbank};
+
+        \FileDot{0.75,0.25}{paletteB}{Version 47}
+        \FileDot{0.75,-0.75}{paletteB}{Version 46}
+        \FileDot{0.75,-1.75}{paletteB}{Version 45}
+
+        \draw[Kite-] (Datei.south) -- ++(0,-0.5);
+        \draw (Version 47) -- (Version 46);
+        \draw (Version 46) -- (Version 45);
+        \draw[densely dotted] (Version 45) -- ++(0,-0.5);
+    \end{tikzpicture}\\[0.25em]Rechner 2};
+
+    \node[scale=0.5,align=center] (server) at(2,3) {Server\\[0.25em]\begin{tikzpicture}
+        \draw[black!98!white,fill=white!73!lightgray] (0,-2.5) rectangle ++(3.5,4.25);
+
+        \draw[black!98!white,fill=white] (0.25,-2.25) rectangle ++(3,3.75);
+        \node[below] at(1.75,1.45) {\footnotesize Datenbank};
+
+        \FileDot{0.75,0.25}{paletteB}{Version 41}
+        \FileDot{0.75,-0.75}{paletteB}{Version 40}
+        \FileDot{0.75,-1.75}{paletteB}{Version 39}
+
+        \draw (Version 41) -- (Version 40);
+        \draw (Version 40) -- (Version 39);
+        \draw[densely dotted] (Version 39) -- ++(0,-0.5);
+    \end{tikzpicture}};
+
+    \draw[rounded corners,Kite-Kite] (developer-1) |- (server);
+    \draw[rounded corners,Kite-Kite] (developer-2) |- (server);
+    \draw[rounded corners,Kite-Kite] (developer-1) -- (developer-2);
+
+\end{tikzpicture}
