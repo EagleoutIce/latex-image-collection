@@ -9,7 +9,6 @@ The pre-compiled pdf my be found [here](https://media.githubusercontent.com/medi
 
 ## Color-Palette
 
-I wrote a [color-palette](https://github.com/EagleoutIce/color-palettes)-package which is used in this collection but you do not need it for the graphics. Just exchange all the `shade*` and `palette*`-colors with the color of your choice.
+I wrote a [color-palette](https://github.com/EagleoutIce/color-palettes)-package which is used in this collection but you do not need it for the graphics. Just exchange all the `shade*` and `palette*`-colors with the color(s) of your choice.
 
 All other (global) definitions are located in the [image-base.sty](image-base.sty)-File.
-
