@@ -1,0 +1,48 @@
+\begin{tikzpicture}
+    \tikzstyle{dot}=[circle,inner sep = 1.6pt,draw]
+    \tikzstyle{b dot}=[dot, thin]
+    \tikzstyle{lb dot}=[dot, thin, fill=paletteA]
+    \tikzstyle{l dot}=[dot, fill=paletteA]
+    \tikzstyle{tl dot}=[dot,color=paletteC, fill=paletteA]
+    \tikzstyle{t dot}=[dot, color=paletteC]
+
+    \tikzstyle{edge}=[]
+    \tikzstyle{o edge}=[color=paletteA,thick]
+    \tikzstyle{t edge}=[color=paletteC,thick]
+    \tikzstyle{back edge}=[thin, densely dashed]
+    
+    \begin{scope}
+
+        \node[b dot]  (a1)  at ( 0,-0.15, 0) {};
+        \node[dot]    (b1)  at ( 0,-0.15, 3)   {};
+        \node[l dot]  (c1)  at ( 3.3,-0.15, 3) {};
+        \node[l dot]  (d1)  at ( 3.3,-0.15, 0) {};
+        \node[b dot]  (e1)  at ( 0, 3.15, 0) {};
+        \node[l dot]  (f1)  at ( 3.3, 3.15, 0) {};
+        \node[t dot] (g1)  at ( 0, 3.15, 3){};
+
+        \draw[back edge] (g1) -- (e1) -- (f1) (e1) -- (a1) -- (d1);
+
+        \node[b dot]  (a2)  at (1,1,1) {};
+        \node[dot]    (b2)  at (1,1,2)   {};
+        \node[l dot]  (c2)  at (2,1,2) {};
+        \node[l dot]  (d2)  at (2,1,1) {};
+        \node[b dot]  (e2)  at (1,2,1) {};
+        \node[l dot]  (f2)  at (2,2,1) {};
+
+        \node[t dot] (g2)  at (1,2,2) {};
+        \node[tl dot] (h2)  at (2,2,2) {};
+
+        \draw[o edge] (f2) -- (f1);
+        \node[tl dot] (h1)  at (3.3,3.15,3) {};
+
+        \draw[back edge] (f2) -- (e2) -- (g2) (e2) -- (a2) -- (d2);
+
+        \draw[edge] (g1) -- (b1) -- (c1) (a2) -- (b2) -- (b1) -- (a1) (g2) -- (b2) -- (c2);
+
+        \draw[o edge] (h1) -- (f1) -- (d1) -- (c1) -- (h1) -- (h2);
+        \draw[o edge] (d1) -- (d2) -- (f2) -- (h2) -- (c2) -- (d2) (c1) -- (c2);
+        \draw[t edge] (h1) -- (g1) -- (g2) -- (h2);
+        \draw[t edge, densely dotted] (h2) -- (h1);
+    \end{scope}
+\end{tikzpicture}

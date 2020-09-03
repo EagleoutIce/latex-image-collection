@@ -1,0 +1,14 @@
+\begin{tikzpicture}
+    \draw[paletteA, rounded corners=3pt] (0,0) rectangle ++(1,3) node[midway,centered,align=center,font=\scriptsize,color=black] {S\\t\\e\\u\\e\\r\\w\\e\\r\\k};
+    \draw[paletteB, rounded corners=3pt] (6,0) rectangle ++(1,3) node[midway,centered,align=center,font=\scriptsize,color=black] {D\\a\\t\\e\\n};
+    \draw[paletteD, rounded corners=3pt] (2.75,1) rectangle ++(1.5,1.5) node[midway,centered,font=\scriptsize,color=black] {Register};
+    \draw[paletteC, rounded corners=3pt] (2.5,0.75) -- ++(2,0) -- ++(-0.5,-0.5) -- ++(-1,0) -- cycle;
+    \node[font=\scriptsize] at(3.5,0.5) {ALU};
+    \draw[Kite-Kite,paletteB] (4.25,2.25) -- ++(1.75,0);
+    \draw[-Kite,paletteC] (3.5,0.25) |- ++(1.5,-0.25) |- ++(-0.75,1.25);
+    \draw[-Kite,paletteA] (1,2.75) -- ++(5,0);
+    \draw[-Kite,paletteD] (3,1) -- ++(0,-0.25);
+    \draw[-Kite,paletteD] (4,1) -- ++(0,-0.25);
+    \draw[-Kite,paletteA] (1,1.75) -- ++(1.75,0);
+    \draw[-Kite,paletteA] (1,0.5) -- ++(1.75,0);
+\end{tikzpicture}
