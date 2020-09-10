@@ -1,0 +1,15 @@
+
+\bgroup%
+\tikzset{ball/.style={circle,draw,#1, inner sep=4pt, outer sep=2pt},iball/.style={ball=paletteA,fill=shadeA,double,outer sep=2pt, inner sep=4.35pt}}%
+\begin{tikzpicture}
+    \node[inner sep=4pt,ball,outer sep=2pt] (0) at(0,0) {};
+    \def\bln#1{\node[#1] (\i) at(\i,0) {};}
+    \foreach[remember=\i as \li(initially 0)] \i in {1,...,7}{
+        \ifnum\i=4 \bln{iball} \else \bln{ball} \fi 
+        \draw (\li.east) -- (\i.west);
+    }
+    \foreach[remember=\i as \li (initially 0)] \i in {1,...,4}{
+        \draw[-Kite] (\li.80) to[bend left] (\i.100);
+    }
+\end{tikzpicture}%
+\egroup%

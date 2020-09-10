@@ -1,0 +1,146 @@
+\begin{tikzpicture}[fakeblock/.style={rectangle,draw=black},fakesource/.style={midway, centered,minimum height=\baselineskip,execute at begin node={\strut}},ball/.style={circle,draw,#1}]
+    \draw[fakeblock] (0,0) rectangle ++ (3.5,0.65) node[fakesource] {Breitendurchlauf};
+\draw[fakeblock] (4,0) rectangle ++ (3.5,0.65) node[fakesource] {Tiefendurchlauf};
+\draw[fakeblock] (1.5,-1.5) rectangle ++ (2.5,0.65) node[fakesource] {Pre-Order};
+\draw[fakeblock] (4.5,-1.5) rectangle ++ (2.5,0.65) node[fakesource] {In-Order};
+\draw[fakeblock] (7.5,-1.5) rectangle ++ (2.5,0.65) node[fakesource] {Post-Order};
+\draw[-Kite] (4+3.5/2,0) to[in=90,out=270] (2.75,-0.85);
+\draw[-Kite] (4+3.5/2,0) to[in=90,out=270] (5.75,-0.85);
+\draw[-Kite] (4+3.5/2,0) to[in=90,out=270] (8.75,-0.85);
+\draw[fakeblock] (1.5+0.25,-1.5) |- ++(2,-0.5) -- ++(0,0.5);
+\draw[fakeblock] (4.5+0.25,-1.5) |- ++(2,-0.5) -- ++(0,0.5);
+\draw[fakeblock] (7.5+0.25,-1.5) |- ++(2,-0.5) -- ++(0,0.5);
+
+\draw[fakeblock] (0+0.75,0) |- ++(2,-0.5) -- ++(0,0.5);
+\node at(0.1 + 1.65, -0.25) {\tiny Ebenen};
+
+\node at(0.1 + 1.65, 0.75) [above] { \begin{tikzpicture}[
+    scale=0.425, every node/.style={transform shape},
+    ring/.style={
+        ball,%
+        execute at begin node={\strut}%
+    }]
+    \node[ring] at (0,0) (one) {1};
+    \node[ring] at (-1.75,-1) (two) {2};
+    \node[ring] at (1.75,-1) (tre) {5};
+    \node[ring] at (2.75,-2) (for) {7};
+    \node[ring] at (.75,-2) (fiv) {6};
+    \node[ring] at (-2.75,-2) (six) {3};
+    \node[ring] at (-.75,-2) (sev) {4};
+    \begin{scope}[every path/.style={densely dotted, thin,black!45}]
+        \draw (one) -- (two);
+        \draw (one) -- (tre);
+        \draw (two) -- (six);
+        \draw (two) -- (sev);
+        \draw (tre) -- (for);
+        \draw (tre) -- (fiv);
+        \end{scope}
+    \begin{scope}[every path/.style={densely dashed}]
+        \draw[-Kite] (one) -- (two);
+        \draw[-Kite] (two) -- (tre);
+        \draw[-Kite] (tre) -- (six);
+        \draw[-Kite] (six) -- (sev);
+        \draw[-Kite,scale=0.5,transform shape] (sev) -- (fiv);
+        \draw[-Kite] (fiv) -- (for);
+    \end{scope}
+
+\end{tikzpicture}};
+
+
+\node at(1.6 + 1.15, -1.75) {\tiny root, left, right};
+\node at(1.6 + 1.15, -2.15) [below] { \begin{tikzpicture}[
+    scale=0.425, every node/.style={transform shape},
+    ring/.style={
+        ball,%
+        execute at begin node={\strut}%
+    }]
+    \node[ring] at (0,0) (one) {1};
+    \node[ring] at (-1.75,-1) (two) {2};
+    \node[ring] at (1.75,-1) (tre) {5};
+    \node[ring] at (2.75,-2) (for) {7};
+    \node[ring] at (.75,-2) (fiv) {6};
+    \node[ring] at (-2.75,-2) (six) {3};
+    \node[ring] at (-.75,-2) (sev) {4};
+    \begin{scope}[every path/.style={densely dotted, thin,black!45}]
+    \draw (one) -- (two);
+    \draw (one) -- (tre);
+    \draw (two) -- (six);
+    \draw (two) -- (sev);
+    \draw (tre) -- (for);
+    \draw (tre) -- (fiv);
+    \end{scope}
+    \begin{scope}[every path/.style={densely dashed}]
+        \draw[-Kite] (one) -- (two);
+        \draw[-Kite] (two) -- (six);
+        \draw[-Kite] (six) to[bend left] (sev);
+        \draw[-Kite] (sev) to[out=85,in = 185,looseness=1.15] (tre);
+        \draw[-Kite] (tre) -- (fiv);
+        \draw[-Kite] (fiv) -- (for);
+    \end{scope}
+    %%DRAW DEFAULTS DENSLEY DOTTED IN GRAY TO KEEP STYLE
+\end{tikzpicture}};
+\node at(4.6 + 1.15, -1.75) {\tiny left, root, right};
+\node at(4.6 + 1.15, -2.15) [below] { \begin{tikzpicture}[
+    scale=0.425, every node/.style={transform shape},
+    ring/.style={
+        ball,%
+        execute at begin node={\strut}%
+    }]
+    \node[ring] at (0,0) (one) {1};
+    \node[ring] at (-1.75,-1) (two) {2};
+    \node[ring] at (1.75,-1) (tre) {5};
+    \node[ring] at (2.75,-2) (for) {7};
+    \node[ring] at (.75,-2) (fiv) {6};
+    \node[ring] at (-2.75,-2) (six) {3};
+    \node[ring] at (-.75,-2) (sev) {4};
+    \begin{scope}[every path/.style={densely dotted, thin,black!45}]
+        \draw (one) -- (two);
+        \draw (one) -- (tre);
+        \draw (two) -- (six);
+        \draw (two) -- (sev);
+        \draw (tre) -- (for);
+        \draw (tre) -- (fiv);
+        \end{scope}
+    \begin{scope}[every path/.style={densely dashed}]
+        \draw[-Kite] (six) -- (two);
+        \draw[-Kite] (two) -- (sev);
+        \draw[-Kite] (sev) to[bend left] (one);
+        \draw[-Kite] (one) to[bend left] (fiv);
+        \draw[-Kite] (fiv) -- (tre);
+        \draw[-Kite] (tre) -- (for);
+    \end{scope}
+
+\end{tikzpicture}};
+\node at(7.6 + 1.15, -1.75) {\tiny left, right, root};
+\node at(7.6 + 1.15, -2.15) [below] { \begin{tikzpicture}[
+    scale=0.425, every node/.style={transform shape},
+    ring/.style={
+        ball,%
+        execute at begin node={\strut}%
+    }]
+    \node[ring] at (0,0) (one) {1};
+    \node[ring] at (-1.75,-1) (two) {2};
+    \node[ring] at (1.75,-1) (tre) {5};
+    \node[ring] at (2.75,-2) (for) {7};
+    \node[ring] at (.75,-2) (fiv) {6};
+    \node[ring] at (-2.75,-2) (six) {3};
+    \node[ring] at (-.75,-2) (sev) {4};
+    \begin{scope}[every path/.style={densely dotted, thin,black!45}]
+        \draw (one) -- (two);
+        \draw (one) -- (tre);
+        \draw (two) -- (six);
+        \draw (two) -- (sev);
+        \draw (tre) -- (for);
+        \draw (tre) -- (fiv);
+        \end{scope}
+    \begin{scope}[every path/.style={densely dashed}]
+        \draw[-Kite] (six) -- (sev);
+        \draw[-Kite] (sev) -- (two);
+        \draw[-Kite] (two) to[bend left] (fiv);
+        \draw[-Kite] (fiv) -- (for);
+        \draw[-Kite] (for) -- (tre);
+        \draw[-Kite] (tre) -- (one);
+    \end{scope}
+
+\end{tikzpicture}};
+\end{tikzpicture}%

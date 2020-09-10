@@ -1,0 +1,10 @@
+\bgroup%
+\tikzset{ball/.style={circle,draw,#1},iball/.style={ball=paletteA,fill=shadeA,inner sep=4.35pt,double}}%
+\begin{forest}
+    for tree={inner sep=4pt,ball,outer sep=1pt}
+    [,name=m1[[[][[][,phantom]]][[][[][]]]][,name=m2[][,name=m3[,name=m4,iball[,phantom][]][[]]]]]
+    \draw[-Kite] (m1) to[bend left,looseness=1.25] (m2);
+    \draw[-Kite] (m2) to[bend left,looseness=1.15] (m3);
+    \draw[-Kite] (m3) to[bend right,looseness=1] (m4);
+\end{forest}%
+\egroup%
