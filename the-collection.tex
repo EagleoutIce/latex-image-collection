@@ -74,9 +74,10 @@
 \subsection{Graphic: #2}%
 \rndP% randomize current rndPalette
 \begin{center}
-    \WithPalette{IceLake}{\DefaultBox{#1}{#2}{\CurrentPalette{} palette}}
-    \WithPalette{\rndPalette}{\DefaultBox{#1}{#2}{\CurrentPalette{} palette (random)}}
-    \WithPalette{GrayPrint}{\DefaultBox{#1}{#2}{\CurrentPalette{} palette}}
+    {\UsePalette{IceLake}\DefaultBox{#1}{#2}{\CurrentPalette{} palette}}
+    {\UsePalette{\rndPalette}\DefaultBox{#1}{#2}{\CurrentPalette{} palette (random)}}
+    {\UsePalette{GrayPrint}\DefaultBox{#1}{#2}{\CurrentPalette{} palette}}
+    \UsePalette{IceLake}% reset
 \end{center}
 The file can be found here: \href{#1}{#1}.
 }
