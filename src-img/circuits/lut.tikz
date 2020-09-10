@@ -1,0 +1,15 @@
+\begin{tikzpicture}
+\draw (0,0) -- ++(1,1) -- ++(0,-5) -- ++(-1,1) --cycle node[midway, rotate=90, below=0.25cm] {Dekodierer};
+\draw[Kite-] (0,-1.5) -- ++(-0.5,0) node[rotate=90,above] {\tiny 4 Adressen};
+\node[above,align=center] at (2.5,0.75) {\textbf{SRAM}\\\tiny (\(2^4\) Zellen)};
+\draw (6,-1) rectangle ++(1,-1) node [midway, centered] {\(\geq 1\)};
+\foreach \y/\yn in {0/00,1/01,2/10,3/11} {
+    \draw[paletteA,fill=shadeA] (2,-\y-0.5) rectangle ++(1,1);
+    \draw (2,-\y) to[edge node={node[above]{\small\yn}}] ++(-1,0) (3,-\y-0.25) --++(1,0) (3,-\y+0.25) -- ++(1,0) (4,-\y-0.3) rectangle ++(0.6,0.6) node[midway,centered] {\small \&} (4.6,-\y) -- ++(0.4,0);
+}
+\draw (5,0) -| ++(0.6,-1.2) -- ++(0.4,0)
+        (5,-1) -| ++(0.4,-0.4) -- ++(0.6,0)
+        (5,-2) -| ++(0.4,0.4) -- ++(0.6,0)
+        (5,-3) -| ++(0.6,1.2) -- ++(0.4,0);
+\draw[-Kite] (7,-1.5) -- ++(0.5,0);
+\end{tikzpicture}

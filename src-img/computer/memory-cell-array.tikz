@@ -1,0 +1,44 @@
+\begin{tikzpicture}[scale=0.75,every node/.style={transform shape}]
+    \def\ring#1{\fill #1 circle [radius=0.7pt];} \def\ringC#1{\fill[paletteD] #1 circle [radius=0.7pt];}
+    \foreach \x in {2,4,6}{
+        \draw (\x,1) -- (\x,-6);
+        \draw (\x+1,1) -- (\x+1,-6);
+        \node [above] at(\x,1) {\(B\)};
+        \node [above] at (\x+1,1) {\(\overline{B}\)};
+        \draw (1,-\x+1) -- (8,-\x+1) node[below] {\scriptsize Wortleitung};
+        \draw (1,-\x+2) -- (8,-\x+2) node[below] {\scriptsize Wortleitung};
+        \foreach \y in {2,...,9}{
+            \ringC{(1.5,-\x+.2)};
+            \ringC{(1.5,-\x+1.2)};
+
+        }
+        \foreach \y in {2,4,6}{
+            \draw[color=paletteC, rounded corners = .5pt,fill=paletteC,fill opacity = 0.1] (\y+.1,-\x+-.1+1) rectangle ++(.8,-.6)node[midway, centered,paletteC,opacity=1] {\bfseries X};
+            \draw[color=paletteC, rounded corners = .5pt, fill=paletteC,fill opacity = 0.1] (\y+.1,-\x+-.1+2) rectangle ++(.8,-.6) node[midway, centered,paletteC,opacity=1] {\bfseries X};
+            \draw (\y+.5,-\x+1.9) -- ++(0,.1);
+            \draw (\y+.5,-\x+0.9) -- ++(0,.1);
+            \ring{(\y+.5,-\x+1)}; \ring{(\y +.5, -\x+2)};
+            \draw (\y+.1,-\x+1.5) -- ++(-.1,0);
+            \draw (\y+.1,-\x+0.5) -- ++(-.1,0);
+            \ring{(\y,-\x+.5)}; \ring{(\y, -\x+1.5)};
+            \draw (\y+.9,-\x+1.5) -- ++(.1,0);
+            \draw (\y+.9,-\x+0.5) -- ++(.1,0);
+            \ring{(\y+1,-\x+.5)}; \ring{(\y+1, -\x+1.5)};
+            \draw[color=paletteA, rounded corners = .5pt, fill=paletteA,fill opacity = 0.1] (\y+.1,.7) rectangle ++(.8,-.4);
+            \node at (\y+0.5,.5) {\textcolor{paletteA}{\tiny{\(V\)}}};
+            \draw (\y+0.9,.5) -- ++(.1,0);
+            \draw (\y+.1,0.5) -- ++(-.1,0);
+            \ring{(\y+1,.5)}; \ring{(\y,0.5)};
+            \draw[color=paletteD] (\y+.5,-\x+1.3) -- ++(0,-.1);
+            \draw[color=paletteD] (\y+.5,-\x+0.3) -- ++(0,-.1);
+            \ringC{(\y+.5,-\x+1.2)}; \ringC{(\y+.5,-\x+0.2)};
+            }
+            \draw[color=paletteD] (1.5,-\x+.2) -- (8.5,-\x+.2);
+            \draw[color=paletteD] (1.5,-\x+1.2) -- (8.5,-\x+1.2);
+        \node at(7.5,-\x+0.5) {\(\cdots\)};
+        \node at(7.5,-\x+1.5) {\(\cdots\)};
+
+    }
+    \draw [color=paletteD] (1.5,-0.8) -- (1.5,-6);
+    \node [below] at(1.5,-6) {\textcolor{paletteD}{\tiny{L/S}}};
+\end{tikzpicture}

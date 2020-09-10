@@ -10,7 +10,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{image-base}[2020/08/21 EagleoutIce - Base-Package for all src-img]
 
-\RequirePackage{tikz,tikzducks,fontawesome,pifont,pgfplots,forest}
+\RequirePackage{tikz,tikzducks,fontawesome,pifont,pgfplots,forest,amssymb}
 \usetikzlibrary{shapes,calc,decorations.pathreplacing,arrows.meta,patterns,3d,backgrounds,graphs}
 
 \let\T\texttt
@@ -20,7 +20,7 @@
 
 % choose random palette (any except IceLake, legacy and print)
 \pgfmathsetseed{\number\pdfrandomseed}
-\pgfmathdeclarerandomlist{palettes}{{Water}{GraySun}{ClayGrass}{PurpleCoin}{Moonshine}{BloodyGrass}{SourCandy}{PurpleSand}{Rainbow}{Crimson}{Lucy}{UniInfo}{UniMawi}{UniNawi}{UniMed}}
+\pgfmathdeclarerandomlist{palettes}{{Water}{GraySun}{ClayGrass}{PurpleCoin}{Moonshine}{BloodyGrass}{SourCandy}{PurpleSand}{Rainbow}{Crimson}{Lucy}{UniInfo}{UniMawi}{UniNawi}{UniMed}{Ntts}{PastelRainbow}{Vampire}}
 \def\rndP{\pgfmathrandomitem{\rndPalette}{palettes}}
 
 % TODO: find a better way for the savebox in -08
