@@ -14,13 +14,15 @@
 \usetikzlibrary{shapes,calc,decorations.pathreplacing,arrows.meta,patterns,3d,backgrounds,graphs}
 
 \let\T\texttt
-\RequirePackage[hyperref,addons]{./color-palettes/color-palettes}
+\RequirePackage[hyperref,addons]{color-palettes}
 \SetShadeContrast{49}
 \UsePalette{IceLake}
 
 % choose random palette (any except IceLake, legacy and print)
 \pgfmathsetseed{\number\pdfrandomseed}
-\pgfmathdeclarerandomlist{palettes}{{Water}{GraySun}{ClayGrass}{PurpleCoin}{Moonshine}{BloodyGrass}{SourCandy}{PurpleSand}{Rainbow}{Crimson}{Lucy}{UniInfo}{UniMawi}{UniNawi}{UniMed}{Ntts}{PastelRainbow}{Vampire}}
+\pgfmathdeclarerandomlist{palettes}{{Water}{GraySun}{ClayGrass}{PurpleCoin}{Moonshine}{BloodyGrass}{SourCandy}{PurpleSand}%
+                                    {Rainbow}{Crimson}{Lucy}{UniInfo}{UniMawi}{UniNawi}{UniMed}{Ntts}{PastelRainbow}%
+                                    {Vampire}}
 \def\rndP{\pgfmathrandomitem{\rndPalette}{palettes}}
 
 % TODO: find a better way for the savebox in -08
