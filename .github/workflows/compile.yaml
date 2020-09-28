@@ -1,0 +1,38 @@
+name: compile the overview
+'on':
+  push:
+    branches:
+    - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout git repository
+      uses: actions/checkout@v2
+      with:
+        lfs: true
+        submodules: true
+    - name: Setup Python environment for sltx
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+    - name: Setup and run sltx-install
+      run: |
+        pip install sltx
+        echo "tx-default" | sltx docker
+    - name: Compile the Documents
+      run: |
+        sltx compile --root --profile "tx-default" "the-collection.tex"
+    - name: Commit
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add -f "the-collection.pdf"
+        git commit -m "Newly compiled data"
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        branch: gh-pages
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        force: true
