@@ -2,7 +2,7 @@
 %% -----------------------------------------------------------------------------
 %% Version: 1.0
 %% Author:  Florian Sihler, 21.08.2020
-%% 
+%%
 %% This package is the base for all src-img inside this document. It is enough to include
 %% this package in a document to compile the presented tikz-codes.
 %%
@@ -22,13 +22,14 @@
 \pgfmathsetseed{\number\pdfrandomseed}
 \pgfmathdeclarerandomlist{palettes}{{Water}{GraySun}{ClayGrass}{PurpleCoin}{Moonshine}{BloodyGrass}{SourCandy}{PurpleSand}%
                                     {Rainbow}{Crimson}{Lucy}{UniInfo}{UniMawi}{UniNawi}{UniMed}{Ntts}{PastelRainbow}%
-                                    {Vampire}}
+                                    {Vampire}{Evening}{GreenWater}}
 \def\rndP{\pgfmathrandomitem{\rndPalette}{palettes}}
 
 % TODO: find a better way for the savebox in -08
 \tikzset{%
     slimblock/.style={rectangle,draw,rounded corners=2pt,font=\color{black},inner sep=0.15em,minimum width=2cm,align=center},
-    block/.style={slimblock,rounded corners,minimum height=\baselineskip,execute at begin node={\strut},inner sep=0.46em,minimum width=2cm}
+    block/.style={slimblock,rounded corners,minimum height=\baselineskip,execute at begin node={\strut},inner sep=0.46em,minimum width=2cm},
+    every picture/.append style={line join=round,line cap=round}%
 }
 
 \newcommand*{\entity}[3][]{%
