@@ -11,7 +11,7 @@
     \draw[Kite-] (3.25,-1.2 + 0.25) -- ++(-1,0);
 
     \draw[fill=white,fill opacity=0.65] (0.75,-1.5) rectangle ++ (1.25,2.3);
-    
+
     \node[above,align=center,scale=0.65] at(0.75+1.25/2,-1.5+2.3) {parallele\\Perzeptive\\Enkodierung};
 
     \draw[fill=white] (3.5,-1.5) rectangle ++ (1.25,2.3);
@@ -27,5 +27,5 @@
     \draw[Kite-] (8.5,-0.6 + 0.25) -- ++(-0.35,0) node[right=0.75cm] {Reaktion};
 
     \node[rotate=90] at(-1,-0.6+0.25) {Input};
-    \draw[fill=white] (3.74,0.4-0.25) ellipse [x radius=0.145cm,y radius=0.253cm];
+    \draw[fill=white] (3.75,0.4-0.25) ellipse [x radius=0.145cm,y radius=0.248cm];
 \end{tikzpicture}%
