@@ -16,20 +16,21 @@
 \let\T\texttt
 \RequirePackage[hyperref,addons]{color-palettes}
 \SetShadeContrast{49}
-\UsePalette{IceLake}
+\UsePalette{GreenWater}
 
 % choose random palette (any except IceLake, legacy and print)
 \pgfmathsetseed{\number\pdfrandomseed}
 \pgfmathdeclarerandomlist{palettes}{{Water}{GraySun}{ClayGrass}{PurpleCoin}{Moonshine}{BloodyGrass}{SourCandy}{PurpleSand}%
                                     {Rainbow}{Crimson}{Lucy}{UniInfo}{UniMawi}{UniNawi}{UniMed}{Ntts}{PastelRainbow}%
-                                    {Vampire}{Evening}{GreenWater}}
+                                    {Vampire}{IceLake}{Peach}{Evening}}
 \def\rndP{\pgfmathrandomitem{\rndPalette}{palettes}}
 
 % TODO: find a better way for the savebox in -08
 \tikzset{%
     slimblock/.style={rectangle,draw,rounded corners=2pt,font=\color{black},inner sep=0.15em,minimum width=2cm,align=center},
     block/.style={slimblock,rounded corners,minimum height=\baselineskip,execute at begin node={\strut},inner sep=0.46em,minimum width=2cm},
-    every picture/.append style={line join=round,line cap=round}%
+    every picture/.append style={line join=round,line cap=round},%
+    desc/.style={scale=0.85,font=\itshape\sffamily,fill=lightgray!42!white,inner sep=1.15ex,align=left},%
 }
 
 \newcommand*{\entity}[3][]{%

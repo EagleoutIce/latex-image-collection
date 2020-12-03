@@ -30,7 +30,7 @@
     \read\image@file to \image@cl \relax
     \unless\ifeof\image@file
     \stepcounter{image@file@linec}
-    % \theimage@file@linec: 
+    % \theimage@file@linec:
     \typeout{In Line: \theimage@file@linec (\image@cl)}
     \ignorespaces\image@parse@line{\image@cl}% ~\\
 \repeat
@@ -74,10 +74,10 @@
 \subsection{Graphic: #2}%
 \rndP% randomize current rndPalette
 \begin{center}
-    {\UsePalette{IceLake}\DefaultBox{#1}{#2}{\CurrentPalette{} palette}}
+    {\UsePalette{GreenWater}\DefaultBox{#1}{#2}{\CurrentPalette{} palette}}
     {\UsePalette{\rndPalette}\DefaultBox{#1}{#2}{\CurrentPalette{} palette (random)}}
     {\UsePalette{GrayPrint}\DefaultBox{#1}{#2}{\CurrentPalette{} palette}}
-    \UsePalette{IceLake}% reset
+    \UsePalette{GreenWater}% reset
 \end{center}
 The file can be found here: \href{#1}{#1}.
 }
