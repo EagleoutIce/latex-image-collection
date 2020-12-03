@@ -41,4 +41,12 @@
 %% Key attribute
 \newcommand*{\kattribute}[3][]{\attribute[#1\underline]{#2}{#3};}
 
+\pgfdeclarepatternformonly{small north west lines}{\pgfqpoint{-1pt}{-1pt}}{\pgfqpoint{1.5pt}{1.5pt}}{\pgfqpoint{0.5pt}{0.5pt}}%
+{%
+  \pgfsetlinewidth{0.2pt}%
+  \pgfpathmoveto{\pgfqpoint{0pt}{0.5pt}}%
+  \pgfpathlineto{\pgfqpoint{0.6pt}{-0.1pt}}%
+  \pgfusepath{stroke}%
+}%
+
 \endinput

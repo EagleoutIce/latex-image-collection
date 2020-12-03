@@ -1,0 +1,64 @@
+\begin{tikzpicture}[scale=0.5,every node/.append style={transform shape}]
+  \coordinate (fcenter) at (-1.5-0.35,0.78);
+  % most inner
+  \draw[thick,shadeA] (-0.52,0.25) coordinate (n-start) arc (-24:135:1.435cm and 1.46cm) coordinate[pos=0.03] (n-ofs) coordinate[pos=1.06] (n-toe) coordinate[pos=0.33] (retina-pos) coordinate[pos=0.14] (sg-pos) ++(0,-2.155) arc (218:336:1.252cm and 1.05cm) coordinate (n-end) coordinate[pos=0.99] (n-ofe);
+  % inner
+  \draw[thick,gray] (-0.47,0.25) arc (-24:178:1.48cm) coordinate[pos=0.5] (chorioidea-pos) ++(0,-0.35) arc (185:334:1.43cm and 1.40cm);
+  % outer
+  \draw[rounded corners=0.25pt] (0,0) to[bend right=4] ++(-0.45,0.25) arc (-24:160:1.5cm) coordinate[pos=0.8] (sklera-pos) arc(115:245:0.7cm) arc(205:332:1.49cm) coordinate(nerve-l) to[bend right=5] ++(0.45,-0.25);
+  % shade out
+  \fill[pattern=small north west lines,pattern color=lightgray] (0,0) to[bend right=4] ++(-0.45,0.25) -- (nerve-l) to[bend right=5] ++(0.45,-0.25) to[bend left=3] cycle;
+  % nerve out
+  \filldraw[line width=0.65pt,shadeA,transform canvas={xshift=-0.07}] (n-ofs) to[bend left=3,edge node={coordinate (nerve-pos)}] (n-ofe) to[bend left=42] ++(0.35,0.14) -- ++(0.02,0.04) coordinate[pos=0.45] (lower-nerve) to[bend left=42] cycle;
+  \draw[shadeA,line width=0.044cm] (lower-nerve) -- ++(0.25,-0.135);
+
+  % outer (re-draw)
+  \draw[rounded corners=0.25pt,black] (0,0) to[bend right=4] ++(-0.45,0.25) arc (-24:160:1.5cm) arc(115:245:0.7cm) arc(205:332:1.49cm) to[bend right=5] ++(0.45,-0.25);
+
+  % lense guide
+  \draw[gray] (n-toe)++(0,0.05) -- ++(0,-1.92) coordinate[midway] (lense-c);
+  % lense 'muscles'
+  \fill[white] (n-toe)++(0,0.05) to[bend right=16] ++(0,-1.92) to[bend right=16] cycle;
+  \filldraw[gray,pattern=small north west lines,pattern color=gray] (n-toe)++(0,0.05) to[bend right=16] ++(0,-1.92) to[bend right=16] cycle;
+  % lense
+  \draw[gray,fill=white!60!lightgray,thin] (lense-c) ellipse [x radius=0.225, y radius=0.6];
+
+%   \begin{scope}[xshift=-1.8cm,yshift=-0.49cm,yscale=-1]
+%     \pingu[scale=0.33,@block/.append style={fill=#1!50!white},right eye wink]
+%   \end{scope}
+
+% description
+\begin{scope}[every node/.append style={scale=0.65},every path/.append style={very thin},tt/.tip={Kite[length=2.65pt]}]
+\draw[tt-] (lense-c) -- ++(0.45,0.25) node[right,desc] {Linse};
+
+\draw[tt-] (lense-c)++(-0.35,-0.08) -- ++(-0.55,-0.4) node[below,desc] {Pupille};
+
+\draw[tt-] (lense-c)++(-0.34,-0.5) -- ++(-0.26,-0.7) node[below,desc] {vordere\\Augenkammer};
+
+\draw[tt-] (lense-c)++(-0.28,0.33) -- ++(-0.43,-0.16) node[left,desc] {Iris};
+
+\draw[tt-] (lense-c)++(-0.44,0.44) -- ++(-0.35,0.39) node[above,desc] {Cornea\\(Hornhaut)};
+
+\draw[tt-] (sklera-pos) -- ++(-0.25,0.25) node[above,desc] {Sklera\\(Lederhaut)};
+
+\draw[tt-] (chorioidea-pos) -- ++(0.29,0.68) node[above,desc] {Pigmentepithel\\Chorioidea (Aderhaut)};
+\draw[tt-] (retina-pos) -- ++(0.35,0.45) node[above,desc] {Retina\\(Netzhaut)};
+
+\draw[tt-] (lense-c)++(0.85,-0.45) -- ++(0.15,-0.35) node[below,desc] {Glaskörper};
+
+\node[single arrow,draw=black,scale=1] at($(lense-c)+(-1.8,0)$) {Licht};
+
+\fill[white] (sg-pos)++(-0.015,0) ellipse [x radius=1pt,y radius=1.25pt];
+\fill[white] (nerve-pos)++(0,0.03) circle [radius=0.6pt];
+
+\draw[tt-] (sg-pos) -- ++(0.35,0.25) node[right,desc] {Fovea\\(Sehgrube)};
+\draw[tt-] (nerve-pos) -- ++(-0.2,-0.85) node[below,desc] {Blinder Fleck};
+
+\draw[tt-] (sg-pos)++(0.2,-0.8) -- ++(0.35,0.35) node[right,desc] {Sehnerv};
+
+\node[single arrow,draw=black,scale=1,rotate=-28] at($(sg-pos)+(0.85,-1.17)$) (signal) {Signal};
+\node[below,align=center,yshift=-0.45cm,xshift=0.425cm] at (signal.south) {elektrische\\impulse};
+
+\end{scope}
+
+\end{tikzpicture}%
