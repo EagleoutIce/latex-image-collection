@@ -1,5 +1,4 @@
-[![made-with-latex](https://img.shields.io/badge/Made%20with-LaTeX-1f425f.svg)](https://www.latex-project.org/) [![GPL license](https://img.shields.io/badge/License-GPL-blue.svg)](http://perso.crans.org/besson/LICENSE.html) ![Compile the overview](https://github.com/EagleoutIce/image-collection/workflows/Compile%20the%20overview/badge.svg)
-
+[![made-with-latex](https://img.shields.io/badge/Made%20with-LaTeX-1f425f.svg)](https://www.latex-project.org/) [![GPL license](https://img.shields.io/badge/License-GPL-blue.svg)](http://perso.crans.org/besson/LICENSE.html) [![compile the overview](https://github.com/EagleoutIce/image-collection/actions/workflows/compile.yaml/badge.svg)](https://github.com/EagleoutIce/image-collection/actions/workflows/compile.yaml)
 # image-collection
 A collection of some images i've created with [Ti*k*Z](https://www.ctan.org/pkg/pgf). It should be growing in the future and may be constantly work in progress.
 
