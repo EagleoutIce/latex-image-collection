@@ -1,0 +1,21 @@
+\begin{tikzpicture}
+    \begin{axis}[%
+        ybar=1.5pt, bar width=11pt, symbolic x coords={Fragen,Antworten,beides},xtick=data,
+        legend pos=north east,enlarge x limits=0.15,x=1.7cm,ymin=2,ymax=7.35,height=4.05cm,legend style={draw=none,inner sep=0pt,rounded corners=1pt},axis line style={draw=none},xtick pos=left,tick style={draw=none},yticklabels={,,}%
+    ]
+    \addplot[rounded corners=1pt,tikzA] coordinates {
+        (Fragen,3.5)
+        (Antworten, 3.4)
+        (beides,3.85)
+    };
+
+    \addplot[rounded corners=1pt,tikzB] coordinates {
+        (Fragen, 5)
+        (Antworten, 4.65)
+        (beides,5.15)
+    };
+
+    \legend{Intro, Extro}
+\end{axis}
+    \node[below right,gray] at(current bounding box.north west) {Interviewer};
+\end{tikzpicture}%

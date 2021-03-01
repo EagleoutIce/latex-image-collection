@@ -1,0 +1,32 @@
+\begin{tikzpicture}[block/.style={rectangle,draw, align=center, minimum height=1.9em,rounded corners=1.65pt}]
+\begin{scope}[canvas is xy plane at z=-5.5]
+    \draw (0,0) rectangle ++(4,2.25) node[midway,centered] {\LARGE **********};
+    \node[above left,paletteA] at(4,0) {\textbf{1}};
+\end{scope}
+
+\begin{scope}[canvas is xy plane at z=-2.75]
+    \draw[fill=shadeA,fill opacity=.8] (0,0) rectangle ++(4,2.25) node[midway,centered,scale=4] {\faUser};
+    \node[above left,paletteA] at(4,0) {\textbf{2}};
+\end{scope}
+
+\begin{scope}[canvas is xy plane at z=0]
+    \draw[fill=shadeA,fill opacity=.8] (0,0) rectangle ++(4,2.25);
+    \node[above left,paletteA] at(4,0) {\textbf{3}};
+\end{scope}
+
+\begin{scope}[canvas is xy plane at z=2.75]
+    \draw[fill=white,fill opacity=.8] (0,0) rectangle ++(4,2.25)  node[midway,centered] {\LARGE Wonderful};
+    \node[above left,paletteA] at(4,0) {\textbf{4}};
+\end{scope}
+
+\begin{scope}[canvas is xy plane at z=5.5]
+    \draw[fill=white,fill opacity=.8] (0,0) rectangle ++(4,2.25);
+    \node[align=center,minimum height=1.5cm, text width=3.75cm] at (2,1.5) {\LARGE Good/Bad?};
+
+    \node[lblock=tikzA,align=center, text width=1cm] at (1.15,0.5) {\textsc{good}};
+    \node[lblock=tikzA,text width=1cm] at (2.85,0.5) {\textsc{bad}};
+    \node[above left,paletteA] at(4,0) {\textbf{5}};
+\end{scope}
+
+\draw[-Kite] (0,2.5,-5.25) -- (0,2.5,5.75);
+\end{tikzpicture}%

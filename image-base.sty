@@ -15,6 +15,7 @@
 
 \let\T\texttt
 \RequirePackage[hyperref,addons]{color-palettes}
+\RequirePackage{tikz-palettes}
 \SetShadeContrast{49}
 \UsePalette{GreenWater}
 
@@ -25,10 +26,15 @@
                                     {Vampire}{IceLake}{Peach}{Evening}}
 \def\rndP{\pgfmathrandomitem{\rndPalette}{palettes}}
 
+\def\fillfont{\def\mdseries@sf{medium}\sffamily}
+
 % TODO: find a better way for the savebox in -08
 \tikzset{%
+    every node/.append style={font=\sffamily},
     slimblock/.style={rectangle,draw,rounded corners=2pt,font=\color{black},inner sep=0.15em,minimum width=2cm,align=center},
     block/.style={slimblock,rounded corners,minimum height=\baselineskip,execute at begin node={\strut},inner sep=0.46em,minimum width=2cm},
+    lblock/.style={block,#1,writ,font=\fillfont}, %
+    lblock/.default={tikzA},
     every picture/.append style={line join=round,line cap=round},%
     desc/.style={scale=0.85,font=\itshape\sffamily,fill=lightgray!42!white,inner sep=1.15ex,align=left},%
 }

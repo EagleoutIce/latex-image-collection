@@ -1,0 +1,17 @@
+\begin{tikzpicture}
+    \begin{axis}[%
+        xbar=1.5pt, bar width=11pt, symbolic y coords={contacted,hit,bumped,collided,smashed},xtick=data,
+        legend pos=north east,enlarge y limits=0.15,y=.75cm,xmin=25,xmax=42,width=4.5cm,legend style={draw=none,inner sep=0pt,rounded corners=1pt},axis line style={draw=none},xtick pos=left,tick style={draw=none},yticklabels={,,},xticklabels={,,},extra x ticks={25,42},extra x tick style={grid=major},x label style={at={(0.5,0.125)}},xlabel={\scriptsize\textcolor{gray}{mph}}, extra x tick label={\textcolor{gray}{\pgfmathprintnumber{\tick}}}%
+    ]
+    \addplot[rounded corners=1pt,tikzA] coordinates {
+        (32,contacted)
+        (34,hit)
+        (36.5,bumped)
+        (39,collided)
+        (42,smashed)
+    };
+    \foreach \a/\b in {contacted/32,hit/34,bumped/36.5,collided/39,smashed/42} {
+        \edef\tmp{\noexpand\node[above right,xshift=.1cm,yshift=.2cm,scale=.65] at (axis cs:24,\a) {\a};}\tmp
+    }
+\end{axis}
+\end{tikzpicture}%
