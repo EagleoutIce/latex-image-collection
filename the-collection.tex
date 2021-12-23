@@ -7,11 +7,8 @@
 \usepackage[a4paper,left=1.25cm,right=1.25cm,top=2cm,bottom=2cm]{geometry}
 \usepackage{multicol,microtype,tocloft}
 \usepackage[hidelinks]{hyperref}
-
 \usepackage{image-base}
-
 \setlength{\cftsubsecnumwidth}{2.75em}
-
 \def\pc{\%}\def\dm{\$}
 
 \immediate\write18{bash ./collect.sh > \jobname-col.txt}
@@ -49,7 +46,6 @@
 \def\image@parse@@line#1#2\@nil{%
 \def\tmp@a{#1}%
 \ifx\image@cmdinit@char\tmp@a \relax% is command
-    % \typeout{! AT: '#2'}
     \edef\@tmp{\noexpand\image@parse@@line@folder#2 \noexpand\@nil}\@tmp
 \else \edef\@tmp{\noexpand\image@parse@@line@file#1#2 \noexpand\@nil}\@tmp
 \fi
@@ -65,9 +61,9 @@
 \makeatother
 
 \newcommand{\DefaultBox}[3]{%
-\begin{minipage}[t]{0.32\linewidth}
-    \centering\framebox{\resizebox{0.905\linewidth}{!}{\input{#1}}}\medskip\\
-    \emph{\strut #3}
+\begin{minipage}[t]{.32\linewidth}
+    \centering\fcolorbox{gray}{white}{\resizebox{.905\linewidth}{!}{\input{#1}}}\medskip\\
+    \emph{\strut#3}
 \end{minipage}}
 
 \newcommand{\showcase}[2]{%
@@ -100,9 +96,5 @@ The file can be found here: \href{#1}{#1}.
 
 \tableofcontents
 
-% TODO: implement pallette colors
-% TODO: title src-img...
-
 \IncludeAllsrc-imgFrom{\jobname-col.txt}
-
 \end{document}

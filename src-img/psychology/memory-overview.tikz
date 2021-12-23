@@ -1,0 +1,111 @@
+\begin{tikzpicture}[block/.append style={text width=3.25cm,minimum height=1.9em,font=\sffamily},bb/.style={block,fill=lgray,draw=lgray},lblock/.append style={font=\sffamily\sbfamily},M/.style={line width=.115cm,lgray,line cap=round,rounded corners=.5pt},d/.style={gray,scale=.75},every node/.append style={execute at begin node=\strut},bl/.style={block,fill=paletteB!40!white,draw=paletteB!40!white}]
+    \def\person#1{{\sffamily\sbfamily#1}}
+    \node[lblock=tikzA,right, minimum height=1cm] (0) at (0,0) {Das Gedächtnis};
+
+    \node[below,bb,yshift=-.25cm] (sensorisch) at(0.south) {Sensorisches};
+    \node[below,bb,yshift=-.25cm] (kurzzeit) at(sensorisch.south) {Kurzzeit};
+    \node[below,bb,yshift=-.25cm] (langzeit) at(kurzzeit.south) {Langzeit};
+
+    \draw[decorate,decoration={brace,mirror,amplitude=3pt},thick] ([xshift=-5pt]sensorisch.north west) to[edge node={node[left=5pt,align=right] {\person{Atkinson} \&\\\person{Shiffrin}}}] ([xshift=-5pt]langzeit.south west);
+
+    \node[bl,right=.5cm] (arbeitsged) at (kurzzeit.east) {Arbeitsged.};
+    \node[below] at (arbeitsged.south) {\person{Baddeley}};
+    \draw[paletteB,very thick,-Kite] (kurzzeit) -- (arbeitsged);
+
+    \node[bb,above right=.25cm,xshift=2cm,yshift=.25cm] (phono) at (arbeitsged.north) {Phonological};
+    \node[bb,above left=.25cm ,xshift=2cm,yshift=.25cm] (vis-sketch) at (arbeitsged.north) {Visuospat.};
+
+
+    \node[bb,below right=.25cm,yshift=-.35cm] (implizit) at (langzeit.south) {Implizit};
+    \node[bb,below left=.25cm,yshift=-.35cm] (explizit) at (langzeit.south) {Explizit};
+    \node[left,d] at(explizit.west) {Deklarativ};
+    \node[below,d] at(implizit.south) {Nicht-Deklarativ};
+
+    \node[below] (squire) at(langzeit.south) {\person{Squire}};
+
+    \node[left=1cm] at(squire.west) {\faFlash\ \person{Lashley}};
+
+    \node[bb,above right=.25cm,yshift=.3cm] (priming) at(implizit.east) {Priming};
+    \node[bl,right=.25cm] (konditionieren) at(implizit.east) {Konditionierung};
+    \node[bb,below right=.25cm,yshift=-.3cm] (motorisches) at(implizit.east) {Motorisches};
+
+
+    \node[bb,above right=.45cm,xshift=.25cm,yshift=.5cm] (klassisch) at(konditionieren.east) {Klassisch};
+    \node[bb,right=.45cm,xshift=.25cm] (instrumentell) at(konditionieren.east) {Instrum.\,/\,Operant};
+    \node[bb,below right=.45cm,xshift=.25cm,yshift=-.5cm] (impl-lern) at(konditionieren.east) {Implizit};
+
+    \node[above=-.15cm] at(klassisch.north) {\person{Pawlow}, \person{Rescorla}};
+    \node[above=-.15cm] at(instrumentell.north) {\person{Thorndike}, \person{Skinner}};
+    \node[above=-.15cm] at(impl-lern.north) {\person{Berry}, \person{Broadbent}};
+
+    % Explizites LTM
+    \node[bl,below right=.25cm,yshift=-.35cm] (semantisch) at (explizit.south) {Semantisch};
+    \node[bl,below left=.25cm,yshift=-.35cm] (episodisch) at (explizit.south) {Episodisch};
+
+    \node[below] at(explizit.south) {\person{Tulving}};
+
+    \node[below,bb,yshift=-.25cm] (hipp) at(episodisch.south) {Hippocampus};
+    \node[below,bb,yshift=-.25cm] (kortex) at(hipp.south) {Kortex};
+
+    \node[left,align=right] at(episodisch.west) {\person{Ebbinghaus},\\\person{Deese}};
+
+    \node[below,bb,yshift=-.25cm] (kategorisierung) at(semantisch.south) {Kategorisierung};
+
+    \node[right=.66cm,bb] (aehnlichk) at(kategorisierung.east) {Familienähnl.};
+    \node[below=.25cm,bb] (exemplarth) at(aehnlichk.south) {Exemplartheorie};
+    \node[below=.25cm,bb] (theorie) at(exemplarth.south) {Theoriensicht};
+    \node[below=.25cm,bb] (strukt) at(theorie.south) {Strukturtheorien};
+
+    \node[right,yshift=.15cm] (wittgenstein) at(aehnlichk.east) {\person{Wittgenstein}};
+    \node[below right,yshift=.25cm,d] at (wittgenstein.south west) {\& Prototypengesicht};
+    \node[right] at(exemplarth.east) {\person{Medin} \& \person{Schaffer}};
+    \node[right,yshift=.15cm] (theoriens) at(theorie.east) {\person{Medin} \& \person{Murphy}};
+    \node[below right,yshift=.25cm,d] at (theoriens.south west) {\(\,\neq\,\)Ähnlichkeit};
+
+    \node[below=.15cm,d,align=center] at(strukt.south) {Merkmalslisten, Propositionen,\\Konn. Netzwerke, Schemata};
+    \node[right] at(strukt.east) {\person{Bruner}, \person{Anderson},~\ldots};
+
+    \draw[rounded corners=1pt,lgray,ultra thick] (kortex.south west)++(-1,-3) node[below right,yshift=2.75cm,text=black] (theorien) {Theorien} rectangle ++(8.25,2.75) coordinate[yshift=-2.75cm] (br-theory);
+
+    \node[above left=.05cm,d,align=right] at (br-theory) {Tu-Effekt,\\Visuelles Vorstellen,\\Verkörperte Kognition};
+
+    \node[below right,bb,xshift=.25cm] (amodal) at(theorien.south west) {Amodaler Ansatz};
+    \node[below=.25cm,bb] (modal) at(amodal.south) {Modaler Ansatz};
+
+    \node[right] at(amodal.east) {\person{Anderson}};
+    \node[right] at(modal.east) {\person{Paivio}};
+
+
+    \draw[rounded corners=1pt,lgray,ultra thick] (0.north west)++(-6.75,0) node[below right,text=black] (proc-oriented) {Prozessorientiert} rectangle ++(4,-3.65);
+
+    \node[below right,xshift=.2cm,bb] (lop) at (proc-oriented.south west) {Levels of Proc.};
+    \node[below] at (lop.south) {\person{Craik} \& \person{Lockhart}};
+
+    \node[below=.85cm,bb] (tag) at (lop.south) {Transf-ang. Verh.};
+    \node[below] at (tag.south) {\person{Morris} \& \person{Bransford}};
+
+    \begin{pgfonlayer}{background}
+        \draw[M] (0) -- (langzeit);
+        \draw[M,very thick,-Kite] (langzeit.195) -- (explizit.north-|langzeit.195);
+        \draw[M,very thick,-Kite] (langzeit.345) -- (implizit.north-|langzeit.345);
+
+        \draw[M] (priming.west) -| (implizit.15) (implizit.-15) |- (motorisches.west);
+        \draw[M] (implizit.east) -- (konditionieren.west);
+
+        \draw[M] (konditionieren.east) -- (instrumentell);
+        \draw[M] (konditionieren.east) -- ++(.25,0) |- (klassisch);
+        \draw[M] (konditionieren.east) -- ++(.25,0) |- (impl-lern);
+
+        \draw[M,very thick,-Kite] (explizit.195) -- (episodisch.north-|explizit.195);
+        \draw[M,very thick,-Kite] (explizit.345) -- (semantisch.north-|explizit.345);
+
+        \draw[M] (arbeitsged.north) -- (vis-sketch);
+        \draw[M] (arbeitsged.north) ++(0,.2) -| (phono);
+
+        \draw[M] (episodisch) -- (kortex);
+        \draw[M] (semantisch) -- (kategorisierung);
+
+        \draw[M] (kategorisierung) -- (aehnlichk);
+        \draw[M] (aehnlichk) -- (strukt);
+    \end{pgfonlayer}
+\end{tikzpicture}%
