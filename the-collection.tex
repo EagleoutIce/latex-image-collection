@@ -9,7 +9,7 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{image-base}
 \setlength{\cftsubsecnumwidth}{2.75em}
-\def\pc{\%}\def\dm{\$}
+\let\pc\%\let\dm\$
 
 \immediate\write18{bash ./collect.sh > \jobname-col.txt}
 
@@ -17,7 +17,7 @@
 \newread\image@file
 \newcounter{image@file@linec}
 
-\def\IncludeAllsrc-imgFrom#1{
+\def\IncludeAllsrcimgFrom#1{
     % init:
     \def\image@cl{}
     \immediate\openin\image@file=#1\relax
@@ -51,27 +51,23 @@
 \fi
 }
 
-\def\image@parse@@line@folder#1\@nil{%
-    \section{Folder: #1}
-}
-
-\def\image@parse@@line@file#1 #2\@nil{%
-    \showcase{#1}{#2}%
-}
+\def\image@parse@@line@folder#1\@nil{\section{Folder: #1}}
+\def\image@parse@@line@file#1 #2\@nil{\showcase{#1}{#2}}
 \makeatother
 
 \newcommand{\DefaultBox}[3]{%
-\begin{minipage}[t]{.32\linewidth}
-    \centering\fcolorbox{gray}{white}{\resizebox{.905\linewidth}{!}{\input{#1}}}\medskip\\
+\begin{minipage}[t]{.45\linewidth}
+    \centering\fcolorbox{lightgray}{white}{\resizebox{.91\linewidth}{!}{\input{#1}}}\medskip\\
     \emph{\strut#3}
 \end{minipage}}
 
 \newcommand{\showcase}[2]{%
 \subsection{Graphic: #2}%
-\rndP% randomize current rndPalette
+% randomize current rndPalette via rndP
 \begin{center}
     {\UsePalette{GreenWater}\DefaultBox{#1}{#2}{\CurrentPalette{} palette}}
-    {\UsePalette{\rndPalette}\DefaultBox{#1}{#2}{\CurrentPalette{} palette (random)}}
+    {\UsePalette{BoringElegance}\DefaultBox{#1}{#2}{\CurrentPalette{} palette}}\\[1.5em]
+    {\rndP\UsePalette{\rndPalette}\DefaultBox{#1}{#2}{\CurrentPalette{} palette (random)}}
     {\UsePalette{GrayPrint}\DefaultBox{#1}{#2}{\CurrentPalette{} palette}}
     \UsePalette{GreenWater}% reset
 \end{center}
@@ -96,5 +92,5 @@ The file can be found here: \href{#1}{#1}.
 
 \tableofcontents
 
-\IncludeAllsrc-imgFrom{\jobname-col.txt}
+\IncludeAllsrcimgFrom{\jobname-col.txt}
 \end{document}

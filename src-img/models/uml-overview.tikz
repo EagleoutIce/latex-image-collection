@@ -1,6 +1,6 @@
 \begin{tikzpicture}[every node/.append style={text width=4.5cm, align=center, execute at begin node={\strut},block,font=\small\sffamily},block/.style={rectangle,draw,#1,font=\color{paletteA},rounded corners=0pt,minimum height=\baselineskip,execute at begin node={\strut}},block/.default=black,iblock/.style={block=paletteA,fill=shadeC}]
     % no forest as ported from animations
-    \node[iblock,text width=] (a) at (0,0) {UML};
+    \node[iblock,text width=] (a) at (0,0) {\sffamily UML};
     \node (b1) at(-5,-1) {Strukturdiagramme};
     \node (b2) at (0,-1) {Verhaltensdiagramme};
     \node (b3) at (5,-1) {Weitere Diagramme};
@@ -8,7 +8,7 @@
         \node[iblock,font=\scriptsize\sffamily] (c2) at (-4,-2) {Klassendiagramm};
         \node[iblock,font=\scriptsize\sffamily] (c3) at (1,-2) {Sequenzdiagramm};
         \node (c4) at (6,-2) {Kommunikations\-struktur-Diagr.};
-        
+
         \node[iblock,font=\scriptsize\sffamily] (left1) at (-4,-3) {Objektdiagramm};
         \node (left2) at (-4,-4) {Paketdiagramm};
 
