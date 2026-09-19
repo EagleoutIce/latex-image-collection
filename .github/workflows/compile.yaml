@@ -1,30 +1,28 @@
+
 name: compile the overview
 'on':
   push:
     branches:
     - master
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout git repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with:
-        lfs: true
         submodules: true
-    - name: Setup Python environment for sltx
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.8'
-    - name: Setup and run sltx-install (and pu)
+    - name: Compile the Document
       run: |
-        sudo apt install poppler-utils
-        pip install sltx
-        echo "tx-default" | sltx docker
-    - name: Compile the Document and generate preview
+        docker run --rm -v "$PWD:/work" -w /work -u "$(id -u):$(id -g)" texlive/texlive:latest \
+          latexmk -pdf -shell-escape -interaction=nonstopmode -halt-on-error "the-collection.tex"
+    - name: Generate preview
       run: |
-        sltx compile --root --profile "tx-default" "the-collection.tex"
+        sudo apt-get update && sudo apt-get install -y poppler-utils
         pdftoppm -png -f 1 -l 1 ./the-collection.pdf preview
     - name: Commit
       run: |
@@ -33,8 +31,4 @@ jobs:
         git add -f "the-collection.pdf" "preview-01.png"
         git commit -m "Newly compiled data"
     - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        branch: gh-pages
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        force: true
+      run: git push --force origin HEAD:gh-pages

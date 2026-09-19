@@ -1,5 +1,0 @@
-target: image collection
-dependencies:
-    color-palettes:
-      url: https://github.com/EagleoutIce/color-palettes
-      grab-files: ["*.sty"]

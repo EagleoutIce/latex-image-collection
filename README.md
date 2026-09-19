@@ -1,13 +1,13 @@
-[![made-with-latex](https://img.shields.io/badge/Made%20with-LaTeX-1f425f.svg)](https://www.latex-project.org/) [![GPL license](https://img.shields.io/badge/License-GPL-blue.svg)](http://perso.crans.org/besson/LICENSE.html) [![compile the overview](https://github.com/EagleoutIce/image-collection/actions/workflows/compile.yaml/badge.svg)](https://github.com/EagleoutIce/image-collection/actions/workflows/compile.yaml)
-# image-collection
+[![made-with-latex](https://img.shields.io/badge/Made%20with-LaTeX-1f425f.svg)](https://www.latex-project.org/) [![GPL license](https://img.shields.io/badge/License-GPL-blue.svg)](http://perso.crans.org/besson/LICENSE.html) [![compile the overview](https://github.com/EagleoutIce/latex-image-collection/actions/workflows/compile.yaml/badge.svg)](https://github.com/EagleoutIce/latex-image-collection/actions/workflows/compile.yaml)
+# latex-image-collection
 A collection of some images i've created with [Ti*k*Z](https://www.ctan.org/pkg/pgf). It should be growing in the future and may be constantly work in progress.
 
 ## A Preview
 
-The pre-compiled pdf my be found [here](https://media.githubusercontent.com/media/EagleoutIce/image-collection/gh-pages/the-collection.pdf) or [here](https://github.com/EagleoutIce/image-collection/blob/gh-pages/the-collection.pdf).
+The pre-compiled pdf my be found [here](https://raw.githubusercontent.com/EagleoutIce/latex-image-collection/gh-pages/the-collection.pdf) or [here](https://github.com/EagleoutIce/latex-image-collection/blob/gh-pages/the-collection.pdf).
 
 ## Color-Palette
 
-I wrote a [color-palette](https://github.com/EagleoutIce/color-palettes)-package which is used in this collection but you do not need it for the graphics. Just exchange all the `shade*` and `palette*`-colors with the color(s) of your choice.
+I wrote a [color-palette](https://github.com/EagleoutIce/color-palettes)-package which is used in this collection (included as a git submodule, clone with `--recurse-submodules`) but you do not need it for the graphics. Just exchange all the `shade*` and `palette*`-colors with the color(s) of your choice.
 
 All other (global) definitions are located in the [image-base.sty](image-base.sty)-File.
